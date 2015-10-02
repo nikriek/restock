@@ -46,7 +46,17 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener {
     }
 
     @Override
-    public void didScan(ScanditSDKScanSession scanditSDKScanSession) {
+    protected void onResume() {
+        barcodePicker.startScanning();
+        super.onResume();
+    }
+
+
+    @Override
+    public void didScan(ScanditSDKScanSession session) {
+
+        session.getNewlyDecodedCodes();
+
 
     }
 
