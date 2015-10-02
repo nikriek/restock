@@ -20,8 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
         
-        self.window?.rootViewController = SetupViewController()
         
+        SBSLicense.setAppKey(Constants.ScanditBarcodeScannerAppKey)
+        let rootViewController = ScanViewController()
+        rootViewController.startScanning()
+        
+        self.window?.rootViewController = rootViewController
+
         return true
     }
 
