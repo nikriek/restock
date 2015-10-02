@@ -23,6 +23,8 @@
 		A68F6AE61BBEDCD500B63DB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE51BBEDCD500B63DB5 /* QuartzCore.framework */; };
 		A68F6AE81BBEDCDC00B63DB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */; };
 		A68F6AEA1BBEDCE100B63DB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */; };
+		A68F6AF21BBEECCD00B63DB5 /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		A68F6AF41BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF31BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift */; settings = {ASSET_TAGS = (); }; };
 		A6D0103E1BBEC87D00D40C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */; };
 		A6D010401BBEC87D00D40C19 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */; };
 		A6D010451BBEC87D00D40C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D010441BBEC87D00D40C19 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		A68F6AE51BBEDCD500B63DB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewCell.swift; sourceTree = "<group>"; };
+		A68F6AF31BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScanNotificationView.swift; sourceTree = "<group>"; };
 		A6D0103A1BBEC87D00D40C19 /* Restock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				A68F6AD01BBEDC5E00B63DB5 /* Scandit */,
 				A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */,
 				A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */,
+				A68F6AF31BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift */,
+				A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */,
 				A6D010441BBEC87D00D40C19 /* Assets.xcassets */,
 				A6D010461BBEC87D00D40C19 /* LaunchScreen.storyboard */,
 				A6D010491BBEC87D00D40C19 /* Info.plist */,
@@ -281,9 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68F6AF41BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift in Sources */,
 				A6D010401BBEC87D00D40C19 /* ScanViewController.swift in Sources */,
 				C3D54CE51BBECB2200215034 /* SetupViewController.swift in Sources */,
 				A6D0103E1BBEC87D00D40C19 /* AppDelegate.swift in Sources */,
+				A68F6AF21BBEECCD00B63DB5 /* RecommendationTableViewCell.swift in Sources */,
 				C32C595D1BBED1E600171E3D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

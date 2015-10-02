@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         SBSLicense.setAppKey(Constants.ScanditBarcodeScannerAppKey)
-        let rootViewController = ScanViewController(settings:SBSScanSettings.pre47DefaultSettings())
+        let rootViewController = ScanViewController()
+        rootViewController.startScanning()
         
         self.window?.rootViewController = rootViewController
 
