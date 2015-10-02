@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E19546370E587E4E73BCEC1 /* Pods_Restock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9506398EAE41699D747D0C34 /* Pods_Restock.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A6D0103E1BBEC87D00D40C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */; };
 		A6D010401BBEC87D00D40C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103F1BBEC87D00D40C19 /* ViewController.swift */; };
 		A6D010431BBEC87D00D40C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D010411BBEC87D00D40C19 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		410BE11F328E0A6561385C68 /* Pods-Restock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Restock/Pods-Restock.debug.xcconfig"; sourceTree = "<group>"; };
+		793639D5BF1BA944ED986DC6 /* Pods-Restock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restock.release.xcconfig"; path = "Pods/Target Support Files/Pods-Restock/Pods-Restock.release.xcconfig"; sourceTree = "<group>"; };
+		9506398EAE41699D747D0C34 /* Pods_Restock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D0103A1BBEC87D00D40C19 /* Restock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6D0103F1BBEC87D00D40C19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E19546370E587E4E73BCEC1 /* Pods_Restock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D58964A50BC8C1D4A89C80A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9506398EAE41699D747D0C34 /* Pods_Restock.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6D010311BBEC87D00D40C19 = {
 			isa = PBXGroup;
 			children = (
 				A6D0103C1BBEC87D00D40C19 /* Restock */,
 				A6D0103B1BBEC87D00D40C19 /* Products */,
+				F62EC843BA26D0CE19B24F92 /* Pods */,
+				2D58964A50BC8C1D4A89C80A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Restock;
 			sourceTree = "<group>";
 		};
+		F62EC843BA26D0CE19B24F92 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				410BE11F328E0A6561385C68 /* Pods-Restock.debug.xcconfig */,
+				793639D5BF1BA944ED986DC6 /* Pods-Restock.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6D0104C1BBEC87D00D40C19 /* Build configuration list for PBXNativeTarget "Restock" */;
 			buildPhases = (
+				CB010535071AC126388DC649 /* Check Pods Manifest.lock */,
 				A6D010361BBEC87D00D40C19 /* Sources */,
 				A6D010371BBEC87D00D40C19 /* Frameworks */,
 				A6D010381BBEC87D00D40C19 /* Resources */,
+				974E26F7094E70B1160E0E29 /* Embed Pods Frameworks */,
+				9B6D3ACC3B9A4E2F201B543D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,6 +155,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		974E26F7094E70B1160E0E29 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Restock/Pods-Restock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B6D3ACC3B9A4E2F201B543D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Restock/Pods-Restock-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB010535071AC126388DC649 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6D010361BBEC87D00D40C19 /* Sources */ = {
@@ -244,6 +319,7 @@
 		};
 		A6D0104D1BBEC87D00D40C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 410BE11F328E0A6561385C68 /* Pods-Restock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Restock/Info.plist;
@@ -255,6 +331,7 @@
 		};
 		A6D0104E1BBEC87D00D40C19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 793639D5BF1BA944ED986DC6 /* Pods-Restock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Restock/Info.plist;
@@ -283,6 +360,7 @@
 				A6D0104E1BBEC87D00D40C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
