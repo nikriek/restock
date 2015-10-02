@@ -6,5 +6,6 @@ use_frameworks!
 target 'Restock' do
   pod "Alamofire"
   pod "SnapKit"
+  pod "SwiftyJSON"
 end
 

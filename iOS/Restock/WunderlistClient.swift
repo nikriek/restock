@@ -8,23 +8,32 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class WunderlistClient: NSObject {
     
-    var groceryListId : String
+    var groceryListId : Int? = nil
     var accessToken : String = ""
-    
-    var loginParameters = ["X-Access-Token": accessToken, "X-Client-ID": Constants.WunderlistClientId]
+
+    var loginParameters : [String: String] {
+        get {
+            return ["X-Access-Token": accessToken, "X-Client-ID": Constants.WunderlistClientId]
+        }
+    }
     
     func findGroceriesList()    {
         Alamofire.request(.GET, "http://restock.thinkcarl.com/listId", parameters: loginParameters)
-            .responseJSON { response in
-                if let idString = response["id"], id = Int(idString)    {
-                    groceryListId = id
-                }   else {
-                    print("Error parsing list id")
+            .responseJSON { (_,_, result) in
+                switch result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    self.groceryListId = json["id"].int
+                case .Failure(let error):
+                    NSLog("Failure \(error)")
                 }
-            }
+                
+                
+        }
     }
     
     func login()    {
@@ -33,12 +42,16 @@ class WunderlistClient: NSObject {
     
     func completeLogin(code: String)    {
         let parameters = ["client_id": Constants.WunderlistClientId,
-        "client_secret": Constants.WunderlistClientSecret,
-        "code": code]
+            "client_secret": Constants.WunderlistClientSecret,
+            "code": code]
         Alamofire.request(.POST, "https://www.wunderlist.com/oauth/access_token", parameters: parameters).responseJSON  {
-            response in
-            if let token = response["access_token"] as? String  {
-                accessToken = token
+            (_,_, result) in
+            switch result {
+            case .Success(let data):
+                let json = JSON(data)
+                self.accessToken = json["access_token"].stringValue
+            case .Failure(let error):
+                NSLog("Failure \(error)")
             }
         }
     }
