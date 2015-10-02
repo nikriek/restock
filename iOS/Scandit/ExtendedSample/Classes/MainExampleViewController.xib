@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document propertyAccessControl="none" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" toolsVersion="7702" type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" useAutolayout="YES" useTraitCollections="YES" version="3.0">
+    <dependencies>
+        <deployment identifier="iOS" version="1536" />
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701" />
+        <capability minToolsVersion="5.1" name="Constraints with non-1.0 multipliers" />
+    </dependencies>
+    <objects>
+        <placeholder customClass="MainExampleViewController" id="-1" placeholderIdentifier="IBFilesOwner" userLabel="File's Owner">
+            <connections>
+                <outlet destination="6" id="21" property="view" />
+            </connections>
+        </placeholder>
+        <placeholder customClass="UIResponder" id="-2" placeholderIdentifier="IBFirstResponder" />
+        <view clearsContextBeforeDrawing="NO" contentMode="top" id="6">
+            <rect height="667" key="frame" width="375" x="0.0" y="0.0" />
+            <autoresizingMask heightSizable="YES" key="autoresizingMask" widthSizable="YES" />
+            <subviews>
+                <view contentMode="scaleToFill" id="46" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect height="137" key="frame" width="375" x="0.0" y="265" />
+                    <subviews>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="59" lineBreakMode="tailTruncation" numberOfLines="4" opaque="NO" preferredMaxLayoutWidth="335" text="Opens Scandit Barcode Scanner as new tab and applies settings from 'Settings' tab. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO">
+                            <rect height="80" key="frame" width="335" x="20" y="65" />
+                            <constraints>
+                                <constraint constant="80" firstAttribute="height" id="lq2-rd-7a0" />
+                            </constraints>
+                            <fontDescription key="fontDescription" pointSize="16" type="system" />
+                            <nil key="highlightedColor" />
+                        </label>
+                        <button buttonType="roundedRect" contentHorizontalAlignment="center" contentMode="scaleToFill" contentVerticalAlignment="center" id="27" lineBreakMode="middleTruncation" opaque="NO" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect height="37" key="frame" width="335" x="20" y="20" />
+                            <constraints>
+                                <constraint constant="37" firstAttribute="height" id="RLJ-ow-RIV" />
+                            </constraints>
+                            <fontDescription family="Helvetica" key="fontDescription" name="Helvetica-Bold" pointSize="15" />
+                            <state key="normal" title="Open in a tab">
+                                <color alpha="1" colorSpace="calibratedWhite" key="titleShadowColor" white="0.5" />
+                            </state>
+                            <connections>
+                                <action destination="-1" eventType="touchUpInside" id="29" selector="showScanViewInTab" />
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color alpha="0.0" colorSpace="calibratedWhite" key="backgroundColor" white="0.0" />
+                    <constraints>
+                        <constraint constant="20" firstAttribute="leading" firstItem="27" id="0A0-Ea-Nrr" secondAttribute="leading" secondItem="46" />
+                        <constraint constant="20" firstAttribute="trailing" id="90a-pa-ll1" secondAttribute="trailing" secondItem="27" />
+                        <constraint constant="20" firstAttribute="trailing" id="Rlj-4x-FvR" secondAttribute="trailing" secondItem="59" />
+                        <constraint constant="20" firstAttribute="leading" firstItem="59" id="baY-sl-sLN" secondAttribute="leading" secondItem="46" />
+                        <constraint constant="137" firstAttribute="height" id="mOm-Wk-JJ2" />
+                        <constraint constant="-8" firstAttribute="bottom" id="md5-jt-b0g" secondAttribute="bottom" secondItem="59" />
+                        <constraint constant="20" firstAttribute="top" firstItem="27" id="ph6-Tr-oBR" secondAttribute="top" secondItem="46" />
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="sob-jE-zdn" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect height="57" key="frame" width="374" x="0.0" y="36" />
+                    <subviews>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="qGm-Ud-rwv" lineBreakMode="tailTruncation" opaque="NO" preferredMaxLayoutWidth="224" text="Scandit SDK" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO">
+                            <rect height="57" key="frame" width="224" x="0.0" y="0.0" />
+                            <fontDescription key="fontDescription" pointSize="34" type="system" />
+                            <nil key="highlightedColor" />
+                        </label>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="EbU-bi-sk9" lineBreakMode="tailTruncation" opaque="NO" preferredMaxLayoutWidth="128" text="4.8.1" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" userLabel="scandit.barcodescanner.version">
+                            <rect height="57" key="frame" width="128" x="246" y="0.0" />
+                            <fontDescription key="fontDescription" pointSize="22" type="system" />
+                            <nil key="highlightedColor" />
+                        </label>
+                    </subviews>
+                    <color alpha="0.0" colorSpace="calibratedWhite" key="backgroundColor" white="0.0" />
+                    <constraints>
+                        <constraint firstAttribute="top" firstItem="EbU-bi-sk9" id="Mr4-qL-wKe" secondAttribute="top" secondItem="sob-jE-zdn" />
+                        <constraint constant="22" firstAttribute="leading" firstItem="EbU-bi-sk9" id="S6J-pe-xLU" secondAttribute="trailing" secondItem="qGm-Ud-rwv" />
+                        <constraint firstAttribute="leading" firstItem="qGm-Ud-rwv" id="TRU-Am-iKD" secondAttribute="leading" secondItem="sob-jE-zdn" />
+                        <constraint constant="57" firstAttribute="height" id="VOL-5G-Xmg" />
+                        <constraint firstAttribute="bottom" id="XtV-cx-Thx" secondAttribute="bottom" secondItem="qGm-Ud-rwv" />
+                        <constraint firstAttribute="bottom" id="bK2-ER-dAN" secondAttribute="bottom" secondItem="EbU-bi-sk9" />
+                        <constraint firstAttribute="top" firstItem="qGm-Ud-rwv" id="ic9-sZ-Cyz" secondAttribute="top" secondItem="sob-jE-zdn" />
+                        <constraint firstAttribute="trailing" id="v8J-iJ-px2" secondAttribute="trailing" secondItem="EbU-bi-sk9" />
+                        <constraint firstAttribute="width" firstItem="qGm-Ud-rwv" id="xcD-Xi-SP8" multiplier="0.6" secondAttribute="width" secondItem="sob-jE-zdn" />
+                    </constraints>
+                </view>
+                <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="57" lineBreakMode="tailTruncation" opaque="NO" preferredMaxLayoutWidth="375" text="www.scandit.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO">
+                    <rect height="26" key="frame" width="375" x="0.0" y="626" />
+                    <constraints>
+                        <constraint constant="26" firstAttribute="height" id="Nji-qw-awf" />
+                    </constraints>
+                    <fontDescription key="fontDescription" pointSize="22" type="system" />
+                    <nil key="highlightedColor" />
+                </label>
+            </subviews>
+            <color alpha="1" blue="1" colorSpace="custom" customColorSpace="calibratedRGB" green="1" key="backgroundColor" red="1" />
+            <constraints>
+                <constraint firstAttribute="leading" firstItem="sob-jE-zdn" id="8z8-0v-VEp" secondAttribute="leading" secondItem="6" />
+                <constraint constant="36" firstAttribute="top" firstItem="sob-jE-zdn" id="By0-qr-ZT7" secondAttribute="top" secondItem="6" />
+                <constraint constant="1" firstAttribute="trailing" id="I23-rm-IrQ" secondAttribute="trailing" secondItem="sob-jE-zdn" />
+                <constraint firstAttribute="leading" firstItem="57" id="TaS-Ob-5w9" secondAttribute="leading" secondItem="6" />
+                <constraint constant="15" firstAttribute="bottom" id="Tnp-ov-JZ8" secondAttribute="bottom" secondItem="57" />
+                <constraint firstAttribute="trailing" id="bTo-by-DLL" secondAttribute="trailing" secondItem="46" />
+                <constraint firstAttribute="centerY" id="j6Q-9E-QQg" secondAttribute="centerY" secondItem="46" />
+                <constraint firstAttribute="trailing" id="pef-rQ-29q" secondAttribute="trailing" secondItem="57" />
+                <constraint firstAttribute="leading" firstItem="46" id="r0m-Gh-ohV" secondAttribute="leading" secondItem="6" />
+            </constraints>
+            <nil key="simulatedStatusBarMetrics" />
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47" />
+            <point key="canvasLocation" x="310.5" y="316.5" />
+        </view>
+    </objects>
+</document>
