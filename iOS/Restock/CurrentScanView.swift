@@ -114,5 +114,9 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         return cell!
     }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Recently added"
+    }
 
 }

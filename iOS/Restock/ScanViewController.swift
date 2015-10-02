@@ -27,6 +27,19 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Customize navigationbar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = true
+        var bounds = self.navigationController?.navigationBar.bounds as CGRect!
+        bounds.origin.y = -UIApplication.sharedApplication().statusBarFrame.size.height
+        bounds.size.height += UIApplication.sharedApplication().statusBarFrame.size.height
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        visualEffectView.frame = bounds
+        visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+        self.navigationController?.navigationBar.addSubview(visualEffectView)
+        
+        
         self.view.addSubview(currentScanView)
         currentScanView.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.view.snp_left)
