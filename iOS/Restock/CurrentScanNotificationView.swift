@@ -26,7 +26,6 @@ class CurrentScanNotificationView: UITableViewHeaderFooterView {
     
     let blurredBackgroundView: UIVisualEffectView = {
         let view = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
-        
         return view
     }()
     
@@ -56,6 +55,7 @@ class CurrentScanNotificationView: UITableViewHeaderFooterView {
             make.right.equalTo(self.snp_right).offset(-1 * Constants.GridWidth * 2)
             make.width.equalTo(Constants.GridWidth * 6)
         }
+
     }
     
     func setProductTitleName(name: String) {
@@ -65,6 +65,11 @@ class CurrentScanNotificationView: UITableViewHeaderFooterView {
 
         attributedString.appendAttributedString(addedString)
         self.label.attributedText = attributedString
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        blurredBackgroundView.setRoundedCorners([.TopLeft, .TopRight], radius: Constants.GridWidth)
     }
 
     /*
