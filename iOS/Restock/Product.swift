@@ -10,6 +10,9 @@ import Foundation
 
 class Product: NSObject {
     var upc: String!
+    var customDescription: String?
+    var name: String?
+    var imageUrl: String?
     
     init(upc: String) {
         super.init()
