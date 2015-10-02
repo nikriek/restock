@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document initialViewController="6K1-NY-YfG" propertyAccessControl="none" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" toolsVersion="7702" type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" useAutolayout="YES" useTraitCollections="YES" version="3.0">
+    <dependencies>
+        <deployment identifier="iOS" />
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701" />
+    </dependencies>
+    <scenes>
+        
+        <scene sceneID="PmQ-8q-4Cy">
+            <objects>
+                <tableViewController customClass="TableViewController" id="lb0-iy-gTQ" sceneMemberID="viewController">
+                    <tableView alwaysBounceVertical="YES" clipsSubviews="YES" contentMode="scaleToFill" dataMode="static" id="akm-qM-hXy" key="view" rowHeight="44" sectionFooterHeight="10" sectionHeaderHeight="10" separatorStyle="default" style="grouped">
+                        <rect height="568" key="frame" width="320" x="0.0" y="0.0" />
+                        <autoresizingMask heightSizable="YES" key="autoresizingMask" widthSizable="YES" />
+                        <color alpha="1" blue="0.95686274509803926" colorSpace="calibratedRGB" green="0.93725490196078431" key="backgroundColor" red="0.93725490196078431" />
+                        <sections>
+                            <tableViewSection headerTitle="Scan Barcodes" id="f4w-VA-rgy">
+                                <cells>
+                                    <tableViewCell accessoryType="disclosureIndicator" contentMode="scaleToFill" id="Q6N-0N-xde" indentationWidth="10" selectionStyle="default">
+                                        <autoresizingMask key="autoresizingMask" />
+                                        <tableViewCellContentView clipsSubviews="YES" contentMode="center" id="sX7-N0-WSY" key="contentView" multipleTouchEnabled="YES" opaque="NO" tableViewCell="Q6N-0N-xde">
+                                            <autoresizingMask key="autoresizingMask" />
+                                            <subviews>
+                                                <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" contentMode="left" fixedFrame="YES" horizontalHuggingPriority="251" id="nfA-4j-bi3" lineBreakMode="tailTruncation" opaque="NO" text="Aim and Scan" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" verticalHuggingPriority="251">
+                                                    <rect height="21" key="frame" width="107" x="28" y="11" />
+                                                    <fontDescription key="fontDescription" pointSize="17" type="system" />
+                                                    <color alpha="1" blue="0.78431372549019607" colorSpace="calibratedRGB" green="0.76078431372549016" key="textColor" red="0.22352941176470587" />
+                                                    <nil key="highlightedColor" />
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell accessoryType="disclosureIndicator" contentMode="scaleToFill" id="dSh-ed-kHR" indentationWidth="10" selectionStyle="default">
+                                        <autoresizingMask key="autoresizingMask" />
+                                        <tableViewCellContentView clipsSubviews="YES" contentMode="center" id="mNT-q1-oOy" key="contentView" multipleTouchEnabled="YES" opaque="NO" tableViewCell="dSh-ed-kHR">
+                                            <autoresizingMask key="autoresizingMask" />
+                                            <subviews>
+                                                <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" contentMode="left" fixedFrame="YES" horizontalHuggingPriority="251" id="Y3A-bG-4L9" lineBreakMode="tailTruncation" opaque="NO" text="Scan and Confirm" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" verticalHuggingPriority="251">
+                                                    <rect height="21" key="frame" width="139" x="27" y="11" />
+                                                    <fontDescription key="fontDescription" pointSize="17" type="system" />
+                                                    <color alpha="1" blue="0.7843137255" colorSpace="calibratedRGB" green="0.76078431369999999" key="textColor" red="0.22352941179999999" />
+                                                    <nil key="highlightedColor" />
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="More" id="gDu-0I-9p4">
+                                <cells>
+                                    <tableViewCell accessoryType="disclosureIndicator" contentMode="scaleToFill" id="2QZ-BE-gDS" indentationWidth="10" selectionStyle="default">
+                                        <autoresizingMask key="autoresizingMask" />
+                                        <tableViewCellContentView clipsSubviews="YES" contentMode="center" id="rcR-bi-9hJ" key="contentView" multipleTouchEnabled="YES" opaque="NO" tableViewCell="2QZ-BE-gDS">
+                                            <autoresizingMask key="autoresizingMask" />
+                                            <subviews>
+                                                <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" contentMode="left" fixedFrame="YES" horizontalHuggingPriority="251" id="JQ2-AM-zoi" lineBreakMode="tailTruncation" opaque="NO" text="Settings" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" verticalHuggingPriority="251">
+                                                    <rect height="21" key="frame" width="107" x="28" y="11" />
+                                                    <fontDescription key="fontDescription" pointSize="17" type="system" />
+                                                    <color alpha="1" blue="0.47450980392156861" colorSpace="calibratedRGB" green="0.44313725490196076" key="textColor" red="0.43529411764705883" />
+                                                    <nil key="highlightedColor" />
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell accessoryType="disclosureIndicator" contentMode="scaleToFill" id="eIT-zv-S4n" indentationWidth="10" selectionStyle="default">
+                                        <autoresizingMask key="autoresizingMask" />
+                                        <tableViewCellContentView clipsSubviews="YES" contentMode="center" id="V8K-V2-zcI" key="contentView" multipleTouchEnabled="YES" opaque="NO" tableViewCell="eIT-zv-S4n">
+                                            <autoresizingMask key="autoresizingMask" />
+                                            <subviews>
+                                                <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" contentMode="left" fixedFrame="YES" horizontalHuggingPriority="251" id="m39-CX-Vtp" lineBreakMode="tailTruncation" opaque="NO" text="About" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" verticalHuggingPriority="251">
+                                                    <rect height="21" key="frame" width="47" x="27" y="11" />
+                                                    <fontDescription key="fontDescription" pointSize="17" type="system" />
+                                                    <color alpha="1" blue="0.47450980392156861" colorSpace="calibratedRGB" green="0.44313725490196076" key="textColor" red="0.43529411764705883" />
+                                                    <nil key="highlightedColor" />
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0oA-T1-291" id="r8r-b5-I6F" kind="show" />
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet destination="lb0-iy-gTQ" id="Wfi-Jx-ACC" property="dataSource" />
+                            <outlet destination="lb0-iy-gTQ" id="QFY-Gi-xbP" property="delegate" />
+                        </connections>
+                    </tableView>
+                    <navigationItem id="lgw-jy-EEk" key="navigationItem" title="Scandit Batch Mode Scan Sample">
+                        <barButtonItem id="6gP-AU-hZz" key="backBarButtonItem" title="Cancel" />
+                        <connections>
+                            <outlet destination="7t1-XP-Tfs" id="uZg-VG-W2W" property="titleView" />
+                        </connections>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder id="NKf-LZ-9az" placeholderIdentifier="IBFirstResponder" sceneMemberID="firstResponder" userLabel="First Responder" />
+                <view contentMode="scaleToFill" id="7t1-XP-Tfs" userLabel="nav.title">
+                    <rect height="44" key="frame" width="320" x="0.0" y="0.0" />
+                    <autoresizingMask flexibleMaxX="YES" flexibleMaxY="YES" key="autoresizingMask" />
+                    <subviews>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" contentMode="left" fixedFrame="YES" horizontalHuggingPriority="251" id="JnH-Ss-cxR" lineBreakMode="tailTruncation" opaque="NO" text="4.8.1" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" userLabel="scandit.barcodescanner.version" verticalHuggingPriority="251">
+                            <rect height="44" key="frame" width="161" x="154" y="1" />
+                            <fontDescription key="fontDescription" pointSize="19" type="system" />
+                            <color alpha="1" blue="0.0" colorSpace="calibratedRGB" green="0.0" key="textColor" red="0.0" />
+                            <nil key="highlightedColor" />
+                        </label>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" contentMode="left" fixedFrame="YES" horizontalHuggingPriority="251" id="lG4-g0-zoS" lineBreakMode="tailTruncation" opaque="NO" text="Scandit SDK" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" verticalHuggingPriority="251">
+                            <rect height="21" key="frame" width="130" x="21" y="11" />
+                            <fontDescription key="fontDescription" pointSize="22" type="system" />
+                            <color alpha="1" blue="0.0" colorSpace="calibratedRGB" green="0.0" key="textColor" red="0.0" />
+                            <nil key="highlightedColor" />
+                        </label>
+                    </subviews>
+                    <color alpha="0.0" colorSpace="calibratedWhite" key="backgroundColor" white="0.0" />
+                </view>
+            </objects>
+            <point key="canvasLocation" x="671" y="372" />
+        </scene>
+        
+        <scene sceneID="d21-sG-rEx">
+            <objects>
+                <viewController customClass="AboutViewController" id="0oA-T1-291" sceneMemberID="viewController" title="About">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide id="LD6-sI-Lyl" type="top" />
+                        <viewControllerLayoutGuide id="FrQ-kY-PAY" type="bottom" />
+                    </layoutGuides>
+                    <view contentMode="scaleToFill" id="RAp-pD-YKS" key="view">
+                        <rect height="568" key="frame" width="320" x="0.0" y="0.0" />
+                        <autoresizingMask heightSizable="YES" key="autoresizingMask" widthSizable="YES" />
+                        <subviews>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" fixedFrame="YES" id="xxD-ED-xy1" multipleTouchEnabled="YES" text="This sample app shows how to implement two barcode selection mechanisms to scan codes from sheets with densely packed barcodes." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect height="204" key="frame" width="299" x="11" y="132" />
+                                <color alpha="1" colorSpace="calibratedWhite" key="backgroundColor" white="1" />
+                                <fontDescription family="Helvetica Neue" key="fontDescription" name="HelveticaNeue" pointSize="18" />
+                                <textInputTraits autocapitalizationType="sentences" key="textInputTraits" />
+                                <dataDetectorType key="dataDetectorTypes" link="YES" />
+                            </textView>
+                            <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" contentMode="left" fixedFrame="YES" horizontalHuggingPriority="251" id="oBm-Qw-uJ8" lineBreakMode="tailTruncation" opaque="NO" text="4.8.1" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" userLabel="scandit.barcodescanner.version" verticalHuggingPriority="251">
+                                <rect height="21" key="frame" width="139" x="91" y="527" />
+                                <fontDescription family="Helvetica Neue" key="fontDescription" name="HelveticaNeue" pointSize="18" />
+                                <color alpha="1" blue="0.0" colorSpace="calibratedRGB" green="0.0" key="textColor" red="0.0" />
+                                <nil key="highlightedColor" />
+                            </label>
+                        </subviews>
+                        <color alpha="1" colorSpace="calibratedWhite" key="backgroundColor" white="1" />
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics" />
+                    <size height="568" key="freeformSize" width="320" />
+                </viewController>
+                <placeholder id="V6o-IE-UHf" placeholderIdentifier="IBFirstResponder" sceneMemberID="firstResponder" userLabel="First Responder" />
+            </objects>
+            <point key="canvasLocation" x="1063" y="513" />
+        </scene>
+        
+        <scene sceneID="s2c-UE-D1J">
+            <objects>
+                <navigationController id="6K1-NY-YfG" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics" />
+                    <size height="568" key="freeformSize" width="320" />
+                    <navigationBar contentMode="scaleToFill" id="ylK-z1-g88" key="navigationBar">
+                        <rect height="44" key="frame" width="320" x="0.0" y="0.0" />
+                        <autoresizingMask key="autoresizingMask" />
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lb0-iy-gTQ" id="VhY-XH-ETv" kind="relationship" relationship="rootViewController" />
+                    </connections>
+                </navigationController>
+                <placeholder id="EwS-Q3-LpE" placeholderIdentifier="IBFirstResponder" sceneMemberID="firstResponder" userLabel="First Responder" />
+            </objects>
+            <point key="canvasLocation" x="228" y="397" />
+        </scene>
+    </scenes>
+</document>

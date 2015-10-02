@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout 
+    android:id="@+id/FrameLayout01" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_marginTop="20dp"
+	        android:layout_centerHorizontal="true">
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Scandit SDK"
+		        android:textSize="35sp"
+		        android:textColor="#FFFFFFFF"
+		        />
+	        <TextView
+	            android:id="@+id/version"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/version"
+	            android:textSize="20sp"
+	            android:textColor="#FFFFFFFF"
+	            android:layout_marginLeft="5dp"
+	            />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="www.scandit.com"
+            android:textSize="20sp"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            />
+        
+        <LinearLayout 
+	        android:layout_width="300dp"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:layout_centerInParent="true"
+	        android:layout_marginLeft="30dp"
+	        android:layout_marginRight="30dp">
+			<Button
+					android:id="@+id/aim_scan_button"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="Aim and Scan"
+					android:layout_marginBottom="5dp"
+					/>
+			<Button
+					android:id="@+id/scan_confirm_button"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="Scan and Confirm"
+					android:layout_marginBottom="5dp"
+					/>
+	        <Button
+	            	android:id="@+id/settings"
+	            	android:layout_width="fill_parent"
+	            	android:layout_height="wrap_content"
+	            	android:text="Settings"
+	            	android:layout_centerHorizontal="true"
+					/>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
+
+

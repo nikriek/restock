@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAE4C7601B4681650031DF4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4C75F1B4681650031DF4F /* AppDelegate.swift */; };
+		AAE4C7621B4681650031DF4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4C7611B4681650031DF4F /* ViewController.swift */; };
+		AAE4C7651B4681650031DF4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE4C7631B4681650031DF4F /* Main.storyboard */; };
+		AAE4C7671B4681650031DF4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE4C7661B4681650031DF4F /* Images.xcassets */; };
+		AAE4C7801B4687930031DF4F /* ScanditBarcodeScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE4C77F1B4687930031DF4F /* ScanditBarcodeScanner.framework */; };
+		AAE4C7821B46879F0031DF4F /* ScanditBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAE4C7811B46879F0031DF4F /* ScanditBarcodeScanner.bundle */; };
+		AAE4C78A1B468FA40031DF4F /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE4C7891B468FA40031DF4F /* libiconv.dylib */; };
+		AAE4C78C1B468FA90031DF4F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE4C78B1B468FA90031DF4F /* libc++.dylib */; };
+		AAE4C78E1B468FAE0031DF4F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE4C78D1B468FAE0031DF4F /* libz.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AAE4C75A1B4681650031DF4F /* SwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE4C75E1B4681650031DF4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAE4C75F1B4681650031DF4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAE4C7611B4681650031DF4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAE4C7641B4681650031DF4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AAE4C7661B4681650031DF4F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AAE4C77F1B4687930031DF4F /* ScanditBarcodeScanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScanditBarcodeScanner.framework; path = ../ScanditSDK/ScanditBarcodeScanner.framework; sourceTree = "<group>"; };
+		AAE4C7811B46879F0031DF4F /* ScanditBarcodeScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ScanditBarcodeScanner.bundle; path = ../ScanditSDK/ScanditBarcodeScanner.framework/Resources/ScanditBarcodeScanner.bundle; sourceTree = "<group>"; };
+		AAE4C7861B468A370031DF4F /* SwiftSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftSample-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAE4C7891B468FA40031DF4F /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		AAE4C78B1B468FA90031DF4F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		AAE4C78D1B468FAE0031DF4F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAE4C7571B4681650031DF4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE4C78E1B468FAE0031DF4F /* libz.dylib in Frameworks */,
+				AAE4C78C1B468FA90031DF4F /* libc++.dylib in Frameworks */,
+				AAE4C78A1B468FA40031DF4F /* libiconv.dylib in Frameworks */,
+				AAE4C7801B4687930031DF4F /* ScanditBarcodeScanner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAE4C7511B4681650031DF4F = {
+			isa = PBXGroup;
+			children = (
+				AAED27F01B46B51C00DA9911 /* Dependencies */,
+				AAE4C7811B46879F0031DF4F /* ScanditBarcodeScanner.bundle */,
+				AAE4C75C1B4681650031DF4F /* SwiftSample */,
+				AAE4C75B1B4681650031DF4F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAE4C75B1B4681650031DF4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4C75A1B4681650031DF4F /* SwiftSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAE4C75C1B4681650031DF4F /* SwiftSample */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4C75F1B4681650031DF4F /* AppDelegate.swift */,
+				AAE4C7611B4681650031DF4F /* ViewController.swift */,
+				AAE4C7631B4681650031DF4F /* Main.storyboard */,
+				AAE4C7661B4681650031DF4F /* Images.xcassets */,
+				AAE4C75D1B4681650031DF4F /* Supporting Files */,
+				AAE4C7861B468A370031DF4F /* SwiftSample-Bridging-Header.h */,
+			);
+			path = SwiftSample;
+			sourceTree = "<group>";
+		};
+		AAE4C75D1B4681650031DF4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4C75E1B4681650031DF4F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAED27F01B46B51C00DA9911 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4C77F1B4687930031DF4F /* ScanditBarcodeScanner.framework */,
+				AAE4C78D1B468FAE0031DF4F /* libz.dylib */,
+				AAE4C78B1B468FA90031DF4F /* libc++.dylib */,
+				AAE4C7891B468FA40031DF4F /* libiconv.dylib */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAE4C7591B4681650031DF4F /* SwiftSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAE4C7791B4681660031DF4F /* Build configuration list for PBXNativeTarget "SwiftSample" */;
+			buildPhases = (
+				AAE4C7561B4681650031DF4F /* Sources */,
+				AAE4C7571B4681650031DF4F /* Frameworks */,
+				AAE4C7581B4681650031DF4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSample;
+			productName = SwiftSample;
+			productReference = AAE4C75A1B4681650031DF4F /* SwiftSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAE4C7521B4681650031DF4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Scandit AG";
+				TargetAttributes = {
+					AAE4C7591B4681650031DF4F = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = AAE4C7551B4681650031DF4F /* Build configuration list for PBXProject "SwiftSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAE4C7511B4681650031DF4F;
+			productRefGroup = AAE4C75B1B4681650031DF4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAE4C7591B4681650031DF4F /* SwiftSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAE4C7581B4681650031DF4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE4C7821B46879F0031DF4F /* ScanditBarcodeScanner.bundle in Resources */,
+				AAE4C7651B4681650031DF4F /* Main.storyboard in Resources */,
+				AAE4C7671B4681650031DF4F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAE4C7561B4681650031DF4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE4C7621B4681650031DF4F /* ViewController.swift in Sources */,
+				AAE4C7601B4681650031DF4F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAE4C7631B4681650031DF4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAE4C7641B4681650031DF4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAE4C7771B4681660031DF4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAE4C7781B4681660031DF4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAE4C77A1B4681660031DF4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../ScanditSDK",
+				);
+				INFOPLIST_FILE = SwiftSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftSample/SwiftSample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAE4C77B1B4681660031DF4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../ScanditSDK",
+				);
+				INFOPLIST_FILE = SwiftSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftSample/SwiftSample-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAE4C7551B4681650031DF4F /* Build configuration list for PBXProject "SwiftSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE4C7771B4681660031DF4F /* Debug */,
+				AAE4C7781B4681660031DF4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAE4C7791B4681660031DF4F /* Build configuration list for PBXNativeTarget "SwiftSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE4C77A1B4681660031DF4F /* Debug */,
+				AAE4C77B1B4681660031DF4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAE4C7521B4681650031DF4F /* Project object */;
+}

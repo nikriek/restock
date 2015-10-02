@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InterfaceBuilderExampleViewController">
+            <connections>
+                <outlet property="scanditBarcodePickerView" destination="i8Q-lg-C4G" id="Bve-ko-vs7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLR-Oz-WC3">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="651" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-cR-ehc">
+                            <rect key="frame" x="8" y="8" width="359" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="DQe-WA-TKb"/>
+                            </constraints>
+                            <string key="text">This is an example of how you can directly add the Scandit Barcode Picker to a xib. You can set basic settings like enabled symbologies in the xib file itself in the Attribute Inspector. Advanced options have to be set through code.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="heightClass=compact">
+                                <mask key="constraints">
+                                    <include reference="DQe-WA-TKb"/>
+                                </mask>
+                            </variation>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8Q-lg-C4G" customClass="SBSBarcodePickerView">
+                            <rect key="frame" x="0.0" y="188" width="375" height="250"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="250" id="DW0-tf-nBd">
+                                    <variation key="heightClass=compact" constant="250"/>
+                                </constraint>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="startOnLoad" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="EAN13" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="UPC12" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="EAN8" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="QR" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="scanDelegate" destination="-1" id="jdq-kR-4jx"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="rJh-cR-ehc" firstAttribute="top" secondItem="oLR-Oz-WC3" secondAttribute="top" constant="8" id="1F1-6R-Eth"/>
+                        <constraint firstItem="rJh-cR-ehc" firstAttribute="leading" secondItem="oLR-Oz-WC3" secondAttribute="leading" constant="8" id="9r9-4g-Wwi"/>
+                        <constraint firstItem="i8Q-lg-C4G" firstAttribute="leading" secondItem="oLR-Oz-WC3" secondAttribute="leading" id="GCS-88-ZnN"/>
+                        <constraint firstItem="rJh-cR-ehc" firstAttribute="width" secondItem="oLR-Oz-WC3" secondAttribute="width" multiplier="0.46" id="SwY-cY-K8K"/>
+                        <constraint firstItem="i8Q-lg-C4G" firstAttribute="top" secondItem="rJh-cR-ehc" secondAttribute="bottom" constant="30" id="UG1-EQ-J0b"/>
+                        <constraint firstAttribute="trailing" secondItem="rJh-cR-ehc" secondAttribute="trailing" constant="8" id="aQx-jB-54u"/>
+                        <constraint firstItem="i8Q-lg-C4G" firstAttribute="top" secondItem="oLR-Oz-WC3" secondAttribute="top" constant="180" id="cTc-uX-F2k">
+                            <variation key="heightClass=compact" constant="8"/>
+                        </constraint>
+                        <constraint firstItem="i8Q-lg-C4G" firstAttribute="width" secondItem="oLR-Oz-WC3" secondAttribute="width" multiplier="0.5" id="hay-Ph-MSe"/>
+                        <constraint firstAttribute="trailing" secondItem="i8Q-lg-C4G" secondAttribute="trailing" id="vKV-8Q-NrZ"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="SwY-cY-K8K"/>
+                            <exclude reference="cTc-uX-F2k"/>
+                            <exclude reference="hay-Ph-MSe"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=compact">
+                        <mask key="constraints">
+                            <include reference="SwY-cY-K8K"/>
+                            <exclude reference="aQx-jB-54u"/>
+                            <exclude reference="GCS-88-ZnN"/>
+                            <exclude reference="UG1-EQ-J0b"/>
+                            <include reference="cTc-uX-F2k"/>
+                            <include reference="hay-Ph-MSe"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oLR-Oz-WC3" secondAttribute="trailing" id="0je-Wd-1ee"/>
+                <constraint firstItem="oLR-Oz-WC3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="S2I-8D-ZLr"/>
+                <constraint firstAttribute="bottom" secondItem="oLR-Oz-WC3" secondAttribute="bottom" id="j9R-Lq-ha6"/>
+                <constraint firstItem="oLR-Oz-WC3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="y8m-N9-WlB"/>
+            </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="285.5" y="280.5"/>
+        </view>
+    </objects>
+</document>

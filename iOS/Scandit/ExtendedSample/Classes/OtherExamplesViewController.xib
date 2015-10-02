@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document propertyAccessControl="none" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" toolsVersion="7702" type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" useAutolayout="YES" useTraitCollections="YES" version="3.0">
+    <dependencies>
+        <deployment identifier="iOS" version="1536" />
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701" />
+        <capability minToolsVersion="5.1" name="Constraints with non-1.0 multipliers" />
+    </dependencies>
+    <objects>
+        <placeholder customClass="OtherExamplesViewController" id="-1" placeholderIdentifier="IBFilesOwner" userLabel="File's Owner">
+            <connections>
+                <outlet destination="cux-9U-L7c" id="q4D-ge-7ar" property="backgroundButton" />
+                <outlet destination="6" id="21" property="view" />
+            </connections>
+        </placeholder>
+        <placeholder customClass="UIResponder" id="-2" placeholderIdentifier="IBFirstResponder" />
+        <view clearsContextBeforeDrawing="NO" contentMode="top" id="6">
+            <rect height="667" key="frame" width="375" x="0.0" y="0.0" />
+            <autoresizingMask heightSizable="YES" key="autoresizingMask" widthSizable="YES" />
+            <subviews>
+                <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="57" lineBreakMode="tailTruncation" opaque="NO" text="www.scandit.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO">
+                    <rect height="26" key="frame" width="375" x="0.0" y="626" />
+                    <constraints>
+                        <constraint constant="26" firstAttribute="height" id="13y-oT-Hgw" />
+                    </constraints>
+                    <fontDescription key="fontDescription" pointSize="22" type="system" />
+                    <nil key="highlightedColor" />
+                </label>
+                <view contentMode="scaleToFill" id="46" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect height="150" key="frame" width="320" x="28" y="258" />
+                    <subviews>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="64" lineBreakMode="tailTruncation" opaque="NO" text="Open in:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO">
+                            <rect height="29" key="frame" width="320" x="0.0" y="0.0" />
+                            <constraints>
+                                <constraint constant="29" firstAttribute="height" id="Wh6-9G-DGA" />
+                            </constraints>
+                            <fontDescription key="fontDescription" pointSize="20" type="system" />
+                            <nil key="highlightedColor" />
+                        </label>
+                        <button buttonType="roundedRect" contentHorizontalAlignment="center" contentMode="scaleToFill" contentVerticalAlignment="center" id="25" lineBreakMode="middleTruncation" opaque="NO" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect height="37" key="frame" width="160" x="0.0" y="37" />
+                            <constraints>
+                                <constraint constant="37" firstAttribute="height" id="3j6-e4-CVp" />
+                            </constraints>
+                            <fontDescription family="Helvetica" key="fontDescription" name="Helvetica-Bold" pointSize="15" />
+                            <state key="normal" title="Modal Controller">
+                                <color alpha="1" colorSpace="calibratedWhite" key="titleShadowColor" white="0.5" />
+                            </state>
+                            <connections>
+                                <action destination="-1" eventType="touchUpInside" id="30" selector="modallyShowScanView" />
+                            </connections>
+                        </button>
+                        <button buttonType="roundedRect" contentHorizontalAlignment="center" contentMode="scaleToFill" contentVerticalAlignment="center" id="31" lineBreakMode="middleTruncation" opaque="NO" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect height="37" key="frame" width="160" x="160" y="37" />
+                            <constraints>
+                                <constraint constant="37" firstAttribute="height" id="Rbu-na-YYJ" />
+                            </constraints>
+                            <fontDescription family="Helvetica" key="fontDescription" name="Helvetica-Bold" pointSize="15" />
+                            <state key="normal" title="Nav Controller">
+                                <color alpha="1" colorSpace="calibratedWhite" key="titleShadowColor" white="0.5" />
+                            </state>
+                            <connections>
+                                <action destination="-1" eventType="touchUpInside" id="33" selector="showScanViewInNav" />
+                            </connections>
+                        </button>
+                        <button buttonType="roundedRect" contentHorizontalAlignment="center" contentMode="scaleToFill" contentVerticalAlignment="center" id="34" lineBreakMode="middleTruncation" opaque="NO" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect height="37" key="frame" width="160" x="161" y="74" />
+                            <constraints>
+                                <constraint constant="37" firstAttribute="height" id="DCT-xn-4uS" />
+                            </constraints>
+                            <fontDescription family="Helvetica" key="fontDescription" name="Helvetica-Bold" pointSize="15" />
+                            <state key="normal" title="Scaled View">
+                                <color alpha="1" colorSpace="calibratedWhite" key="titleShadowColor" white="0.5" />
+                            </state>
+                            <connections>
+                                <action destination="-1" eventType="touchUpInside" id="51" selector="overlayAsScaledView" />
+                            </connections>
+                        </button>
+                        <button buttonType="roundedRect" contentHorizontalAlignment="center" contentMode="scaleToFill" contentVerticalAlignment="center" id="49" lineBreakMode="middleTruncation" opaque="NO" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect height="37" key="frame" width="160" x="0.0" y="74" />
+                            <constraints>
+                                <constraint constant="37" firstAttribute="height" id="1mw-AD-v5F" />
+                            </constraints>
+                            <fontDescription family="Helvetica" key="fontDescription" name="Helvetica-Bold" pointSize="15" />
+                            <state key="normal" title="Cropped View">
+                                <color alpha="1" colorSpace="calibratedWhite" key="titleShadowColor" white="0.5" />
+                            </state>
+                            <connections>
+                                <action destination="-1" eventType="touchUpInside" id="50" selector="overlayAsView" />
+                            </connections>
+                        </button>
+                        <button buttonType="roundedRect" contentHorizontalAlignment="center" contentMode="scaleToFill" contentVerticalAlignment="center" id="D1f-qg-6nT" lineBreakMode="middleTruncation" opaque="NO" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect height="37" key="frame" width="321" x="0.0" y="111" />
+                            <constraints>
+                                <constraint constant="37" firstAttribute="height" id="BtH-Kt-Rxd" />
+                            </constraints>
+                            <fontDescription family="Helvetica" key="fontDescription" name="Helvetica-Bold" pointSize="15" />
+                            <state key="normal" title="Interface Builder View">
+                                <color alpha="1" colorSpace="calibratedWhite" key="titleShadowColor" white="0.5" />
+                            </state>
+                            <connections>
+                                <action destination="-1" eventType="touchUpInside" id="shs-cJ-pSl" selector="showInterfaceBuilderViewController" />
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color alpha="0.0" colorSpace="calibratedWhite" key="backgroundColor" white="0.0" />
+                    <constraints>
+                        <constraint firstAttribute="top" firstItem="D1f-qg-6nT" id="19p-46-Xh8" secondAttribute="bottom" secondItem="49" />
+                        <constraint firstAttribute="trailing" id="5Ib-T4-MOa" secondAttribute="trailing" secondItem="64" />
+                        <constraint firstAttribute="width" firstItem="31" id="8e6-r9-UMj" multiplier="0.5" secondAttribute="width" secondItem="46" />
+                        <constraint firstAttribute="leading" firstItem="64" id="DWD-3x-bBV" secondAttribute="leading" secondItem="46" />
+                        <constraint firstAttribute="width" firstItem="25" id="Icj-tU-Fh9" multiplier="0.5" secondAttribute="width" secondItem="46" />
+                        <constraint firstAttribute="leading" firstItem="25" id="OkN-pP-HiW" secondAttribute="leading" secondItem="46" />
+                        <constraint firstAttribute="top" firstItem="34" id="PbX-uc-5mo" secondAttribute="bottom" secondItem="31" />
+                        <constraint constant="-1" firstAttribute="trailing" id="RAM-VB-HpM" secondAttribute="trailing" secondItem="34" />
+                        <constraint constant="8" firstAttribute="top" firstItem="25" id="XPv-xF-8tr" secondAttribute="bottom" secondItem="64" />
+                        <constraint firstAttribute="leading" firstItem="49" id="YpU-9u-oKW" secondAttribute="leading" secondItem="46" />
+                        <constraint firstAttribute="leading" firstItem="D1f-qg-6nT" id="aGi-wH-Dly" secondAttribute="leading" secondItem="46" />
+                        <constraint firstAttribute="top" firstItem="49" id="dO0-e2-lGF" secondAttribute="bottom" secondItem="31" />
+                        <constraint constant="8" firstAttribute="top" firstItem="31" id="eY5-Za-g50" secondAttribute="bottom" secondItem="64" />
+                        <constraint firstAttribute="trailing" id="gCL-G0-XyJ" secondAttribute="trailing" secondItem="31" />
+                        <constraint constant="150" firstAttribute="height" id="gvQ-dD-h0I" />
+                        <constraint firstAttribute="width" firstItem="49" id="hgE-MH-Fpp" multiplier="0.5" secondAttribute="width" secondItem="46" />
+                        <constraint firstAttribute="width" firstItem="34" id="l80-Ab-YFT" multiplier="0.5" secondAttribute="width" secondItem="46" />
+                        <constraint constant="320" firstAttribute="width" id="lca-CY-CU2" />
+                        <constraint firstAttribute="top" firstItem="64" id="oec-hN-PlG" secondAttribute="top" secondItem="46" />
+                        <constraint constant="-1" firstAttribute="trailing" id="qsM-dY-zYn" secondAttribute="trailing" secondItem="D1f-qg-6nT" />
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="60" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect height="57" key="frame" width="374" x="0.0" y="36" />
+                    <subviews>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="62" lineBreakMode="tailTruncation" opaque="NO" text="Scandit SDK" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO">
+                            <rect height="57" key="frame" width="224" x="0.0" y="0.0" />
+                            <fontDescription key="fontDescription" pointSize="34" type="system" />
+                            <nil key="highlightedColor" />
+                        </label>
+                        <label adjustsFontSizeToFit="NO" baselineAdjustment="alignBaselines" clipsSubviews="YES" contentMode="left" id="61" lineBreakMode="tailTruncation" opaque="NO" text="4.8.1" translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" userLabel="scandit.barcodescanner.version">
+                            <rect height="57" key="frame" width="128" x="246" y="0.0" />
+                            <fontDescription key="fontDescription" pointSize="22" type="system" />
+                            <nil key="highlightedColor" />
+                        </label>
+                    </subviews>
+                    <color alpha="0.0" colorSpace="calibratedWhite" key="backgroundColor" white="0.0" />
+                    <constraints>
+                        <constraint constant="22" firstAttribute="leading" firstItem="61" id="FZd-Lr-djO" secondAttribute="trailing" secondItem="62" />
+                        <constraint constant="57" firstAttribute="height" id="HS6-FG-qf4" />
+                        <constraint firstAttribute="bottom" id="iQB-qB-TpH" secondAttribute="bottom" secondItem="61" />
+                        <constraint firstAttribute="top" firstItem="62" id="m36-j1-YuG" secondAttribute="top" secondItem="60" />
+                        <constraint firstAttribute="trailing" id="pkq-4O-dtM" secondAttribute="trailing" secondItem="61" />
+                        <constraint firstAttribute="top" firstItem="61" id="s5b-7y-BrG" secondAttribute="top" secondItem="60" />
+                        <constraint firstAttribute="bottom" id="sBQ-md-FeC" secondAttribute="bottom" secondItem="62" />
+                        <constraint firstAttribute="leading" firstItem="62" id="ter-I2-zi5" secondAttribute="leading" secondItem="60" />
+                        <constraint firstAttribute="width" firstItem="62" id="w4R-Qg-xXB" multiplier="0.6" secondAttribute="width" secondItem="60" />
+                    </constraints>
+                </view>
+                <button contentHorizontalAlignment="center" contentMode="scaleToFill" contentVerticalAlignment="center" hidden="YES" id="cux-9U-L7c" lineBreakMode="middleTruncation" opaque="NO" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect height="666" key="frame" width="375" x="0.0" y="1" />
+                    <state key="normal">
+                        <color alpha="1" colorSpace="calibratedWhite" key="titleShadowColor" white="0.5" />
+                    </state>
+                    <connections>
+                        <action destination="-1" eventType="touchUpInside" id="sdu-d6-sKZ" selector="closePickerSubview:" />
+                    </connections>
+                </button>
+            </subviews>
+            <color alpha="1" blue="1" colorSpace="custom" customColorSpace="calibratedRGB" green="1" key="backgroundColor" red="1" />
+            <constraints>
+                <constraint firstAttribute="leading" firstItem="cux-9U-L7c" id="2PE-CC-nrF" secondAttribute="leading" secondItem="6" />
+                <constraint constant="1" firstAttribute="top" firstItem="cux-9U-L7c" id="6oK-nO-IEK" secondAttribute="top" secondItem="6" />
+                <constraint firstAttribute="trailing" id="AeF-nO-ujg" secondAttribute="trailing" secondItem="cux-9U-L7c" />
+                <constraint constant="1" firstAttribute="trailing" id="EY4-g6-fFE" secondAttribute="trailing" secondItem="60" />
+                <constraint firstAttribute="centerX" id="GZm-Bn-vrC" secondAttribute="centerX" secondItem="46" />
+                <constraint firstAttribute="bottom" id="QjS-Dr-KEC" secondAttribute="bottom" secondItem="cux-9U-L7c" />
+                <constraint firstAttribute="leading" firstItem="60" id="ZJT-4g-UKT" secondAttribute="leading" secondItem="6" />
+                <constraint firstAttribute="centerY" id="bIx-Gt-pYc" secondAttribute="centerY" secondItem="46" />
+                <constraint constant="36" firstAttribute="top" firstItem="60" id="fqS-6J-OTv" secondAttribute="top" secondItem="6" />
+                <constraint firstAttribute="leading" firstItem="57" id="oes-id-eAs" secondAttribute="leading" secondItem="6" />
+                <constraint firstAttribute="trailing" id="vzR-hw-dOR" secondAttribute="trailing" secondItem="57" />
+                <constraint constant="15" firstAttribute="bottom" id="y4T-Wg-IY6" secondAttribute="bottom" secondItem="57" />
+            </constraints>
+            <nil key="simulatedStatusBarMetrics" />
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47" />
+            <point key="canvasLocation" x="310.5" y="316.5" />
+        </view>
+    </objects>
+</document>
