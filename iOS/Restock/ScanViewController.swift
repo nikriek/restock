@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScanViewController: UIViewController {
+class ScanViewController: SBSBarcodePicker {
 
     override func viewDidLoad() {
         super.viewDidLoad()

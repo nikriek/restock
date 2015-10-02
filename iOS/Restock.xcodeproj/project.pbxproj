@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		4E19546370E587E4E73BCEC1 /* Pods_Restock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9506398EAE41699D747D0C34 /* Pods_Restock.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A68F6ACC1BBED76800B63DB5 /* ScanditBarcodeScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6ACB1BBED76800B63DB5 /* ScanditBarcodeScanner.framework */; settings = {ASSET_TAGS = (); }; };
+		A68F6ACF1BBEDC5900B63DB5 /* ScanditBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A68F6ACE1BBEDC5900B63DB5 /* ScanditBarcodeScanner.bundle */; settings = {ASSET_TAGS = (); }; };
+		A68F6AD21BBEDC7F00B63DB5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AD11BBEDC7F00B63DB5 /* OpenGLES.framework */; };
+		A68F6AD41BBEDC8B00B63DB5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AD31BBEDC8B00B63DB5 /* libc++.tbd */; };
+		A68F6AD61BBEDC9500B63DB5 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AD51BBEDC9500B63DB5 /* libiconv.tbd */; };
+		A68F6AD81BBEDC9E00B63DB5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AD71BBEDC9E00B63DB5 /* MessageUI.framework */; };
+		A68F6ADA1BBEDCA700B63DB5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AD91BBEDCA700B63DB5 /* CoreVideo.framework */; };
+		A68F6ADC1BBEDCB000B63DB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6ADB1BBEDCB000B63DB5 /* CoreGraphics.framework */; };
+		A68F6ADE1BBEDCB900B63DB5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6ADD1BBEDCB900B63DB5 /* AudioToolbox.framework */; };
+		A68F6AE01BBEDCC100B63DB5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6ADF1BBEDCC100B63DB5 /* libz.tbd */; };
+		A68F6AE21BBEDCC900B63DB5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE11BBEDCC900B63DB5 /* AVFoundation.framework */; };
+		A68F6AE41BBEDCD000B63DB5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE31BBEDCD000B63DB5 /* CoreMedia.framework */; };
+		A68F6AE61BBEDCD500B63DB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE51BBEDCD500B63DB5 /* QuartzCore.framework */; };
+		A68F6AE81BBEDCDC00B63DB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */; };
+		A68F6AEA1BBEDCE100B63DB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */; };
 		A6D0103E1BBEC87D00D40C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */; };
 		A6D010401BBEC87D00D40C19 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */; };
 		A6D010451BBEC87D00D40C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D010441BBEC87D00D40C19 /* Assets.xcassets */; };
@@ -23,6 +37,20 @@
 		9506398EAE41699D747D0C34 /* Pods_Restock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68F6ACB1BBED76800B63DB5 /* ScanditBarcodeScanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScanditBarcodeScanner.framework; sourceTree = "<group>"; };
 		A68F6ACD1BBED7B500B63DB5 /* Restock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Restock-Bridging-Header.h"; sourceTree = "<group>"; };
+		A68F6ACE1BBEDC5900B63DB5 /* ScanditBarcodeScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ScanditBarcodeScanner.bundle; path = ScanditBarcodeScanner.framework/Resources/ScanditBarcodeScanner.bundle; sourceTree = "<group>"; };
+		A68F6AD11BBEDC7F00B63DB5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A68F6AD31BBEDC8B00B63DB5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A68F6AD51BBEDC9500B63DB5 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		A68F6AD71BBEDC9E00B63DB5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A68F6AD91BBEDCA700B63DB5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A68F6ADB1BBEDCB000B63DB5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A68F6ADD1BBEDCB900B63DB5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A68F6ADF1BBEDCC100B63DB5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A68F6AE11BBEDCC900B63DB5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A68F6AE31BBEDCD000B63DB5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A68F6AE51BBEDCD500B63DB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A6D0103A1BBEC87D00D40C19 /* Restock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +66,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68F6AEA1BBEDCE100B63DB5 /* SystemConfiguration.framework in Frameworks */,
+				A68F6AE81BBEDCDC00B63DB5 /* CoreLocation.framework in Frameworks */,
+				A68F6AE61BBEDCD500B63DB5 /* QuartzCore.framework in Frameworks */,
+				A68F6AE41BBEDCD000B63DB5 /* CoreMedia.framework in Frameworks */,
+				A68F6AE21BBEDCC900B63DB5 /* AVFoundation.framework in Frameworks */,
+				A68F6AE01BBEDCC100B63DB5 /* libz.tbd in Frameworks */,
+				A68F6ADE1BBEDCB900B63DB5 /* AudioToolbox.framework in Frameworks */,
+				A68F6ADC1BBEDCB000B63DB5 /* CoreGraphics.framework in Frameworks */,
+				A68F6ADA1BBEDCA700B63DB5 /* CoreVideo.framework in Frameworks */,
+				A68F6AD81BBEDC9E00B63DB5 /* MessageUI.framework in Frameworks */,
+				A68F6AD61BBEDC9500B63DB5 /* libiconv.tbd in Frameworks */,
+				A68F6AD41BBEDC8B00B63DB5 /* libc++.tbd in Frameworks */,
+				A68F6AD21BBEDC7F00B63DB5 /* OpenGLES.framework in Frameworks */,
 				4E19546370E587E4E73BCEC1 /* Pods_Restock.framework in Frameworks */,
 				A68F6ACC1BBED76800B63DB5 /* ScanditBarcodeScanner.framework in Frameworks */,
 			);
@@ -49,9 +90,31 @@
 		2D58964A50BC8C1D4A89C80A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */,
+				A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */,
+				A68F6AE51BBEDCD500B63DB5 /* QuartzCore.framework */,
+				A68F6AE31BBEDCD000B63DB5 /* CoreMedia.framework */,
+				A68F6AE11BBEDCC900B63DB5 /* AVFoundation.framework */,
+				A68F6ADF1BBEDCC100B63DB5 /* libz.tbd */,
+				A68F6ADD1BBEDCB900B63DB5 /* AudioToolbox.framework */,
+				A68F6ADB1BBEDCB000B63DB5 /* CoreGraphics.framework */,
+				A68F6AD91BBEDCA700B63DB5 /* CoreVideo.framework */,
+				A68F6AD71BBEDC9E00B63DB5 /* MessageUI.framework */,
+				A68F6AD51BBEDC9500B63DB5 /* libiconv.tbd */,
+				A68F6AD31BBEDC8B00B63DB5 /* libc++.tbd */,
+				A68F6AD11BBEDC7F00B63DB5 /* OpenGLES.framework */,
 				9506398EAE41699D747D0C34 /* Pods_Restock.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A68F6AD01BBEDC5E00B63DB5 /* Scandit */ = {
+			isa = PBXGroup;
+			children = (
+				A68F6ACE1BBEDC5900B63DB5 /* ScanditBarcodeScanner.bundle */,
+				A68F6ACB1BBED76800B63DB5 /* ScanditBarcodeScanner.framework */,
+			);
+			name = Scandit;
 			sourceTree = "<group>";
 		};
 		A6D010311BBEC87D00D40C19 = {
@@ -75,7 +138,7 @@
 		A6D0103C1BBEC87D00D40C19 /* Restock */ = {
 			isa = PBXGroup;
 			children = (
-				A68F6ACB1BBED76800B63DB5 /* ScanditBarcodeScanner.framework */,
+				A68F6AD01BBEDC5E00B63DB5 /* Scandit */,
 				A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */,
 				A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */,
 				A6D010441BBEC87D00D40C19 /* Assets.xcassets */,
@@ -159,6 +222,7 @@
 			files = (
 				A6D010481BBEC87D00D40C19 /* LaunchScreen.storyboard in Resources */,
 				A6D010451BBEC87D00D40C19 /* Assets.xcassets in Resources */,
+				A68F6ACF1BBEDC5900B63DB5 /* ScanditBarcodeScanner.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
