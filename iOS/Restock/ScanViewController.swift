@@ -13,6 +13,7 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     let currentScanView = CurrentScanView()
     var currentProduct: Product?
     let wunderlistClient = WunderlistClient()
+    private var currentScanViewOpened = false
     
     init() {
         super.init(settings:SBSScanSettings.pre47DefaultSettings())
@@ -56,6 +57,10 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.currentScanView.setProductTitleName(name)
                 })
+            } else if let upc = self.currentProduct?.upc {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.currentScanView.setProductTitleName(upc)
+                })
             }
         }
         
@@ -68,20 +73,28 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     
     func handleGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Up:
-                print("Swiped right")
-            case UISwipeGestureRecognizerDirection.Down:
-                print("Swiped down")
-            default:
-                break
-            }
+            toggleCurrentScanView()
         } else if let tapGesture = gesture as? UITapGestureRecognizer {
             if tapGesture.state == .Ended {
-                
+                toggleCurrentScanView()
             }
         }
     }
-
+    
+    func toggleCurrentScanView() {
+        self.currentScanView.snp_updateConstraints { (make) -> Void in
+            if (currentScanViewOpened) {
+                make.top.equalTo(self.view.snp_bottom).offset(-1 * Constants.GridHeight * 2)
+            } else {
+                make.top.equalTo(self.view.snp_bottom).offset(-1 * Constants.GridHeight * 10)
+            }
+        }
+        self.view.setNeedsUpdateConstraints()
+        UIView .animateWithDuration(0.2, animations: { () -> Void in
+            self.view.layoutIfNeeded()
+        }) { (_) -> Void in
+            self.currentScanViewOpened = !self.currentScanViewOpened
+        }
+    }
 }
 

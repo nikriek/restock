@@ -23,11 +23,13 @@ class UPCClient: NSObject {
             .responseJSON { (_, _, result) -> Void in
                 switch result {
                 case .Success(let JSON):
+                    print(JSON)
                     let product = Product(upc: upc)
                     product.name = JSON.valueForKeyPath("product")?.valueForKeyPath("attributes")?.valueForKeyPath("product") as? String
                     product.customDescription = JSON.valueForKeyPath("product")?.valueForKeyPath("attributes")?.valueForKeyPath("description") as? String
                     completion(product, nil)
                 case .Failure(_, let error):
+                    print(error)
                     completion(nil, error)
                 }
         }
