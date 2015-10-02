@@ -24,7 +24,11 @@
 		A68F6AE81BBEDCDC00B63DB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */; };
 		A68F6AEA1BBEDCE100B63DB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */; };
 		A68F6AF21BBEECCD00B63DB5 /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		A68F6AF41BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF31BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift */; settings = {ASSET_TAGS = (); }; };
+		A68F6AF41BBEEE8E00B63DB5 /* CurrentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF31BBEEE8E00B63DB5 /* CurrentScanView.swift */; settings = {ASSET_TAGS = (); }; };
+		A68F6AF71BBF06B400B63DB5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF61BBF06B400B63DB5 /* Product.swift */; settings = {ASSET_TAGS = (); }; };
+		A68F6AF91BBF08D500B63DB5 /* WunderlistClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF81BBF08D500B63DB5 /* WunderlistClient.swift */; settings = {ASSET_TAGS = (); }; };
+		A68F6AFD1BBF215900B63DB5 /* UPCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AFC1BBF215900B63DB5 /* UPCClient.swift */; settings = {ASSET_TAGS = (); }; };
+		A68F6B021BBF241E00B63DB5 /* UIView+RoundedCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = A68F6B011BBF241E00B63DB5 /* UIView+RoundedCorners.m */; settings = {ASSET_TAGS = (); }; };
 		A6D0103E1BBEC87D00D40C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */; };
 		A6D010401BBEC87D00D40C19 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */; };
 		A6D010451BBEC87D00D40C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D010441BBEC87D00D40C19 /* Assets.xcassets */; };
@@ -54,7 +58,12 @@
 		A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewCell.swift; sourceTree = "<group>"; };
-		A68F6AF31BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScanNotificationView.swift; sourceTree = "<group>"; };
+		A68F6AF31BBEEE8E00B63DB5 /* CurrentScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScanView.swift; sourceTree = "<group>"; };
+		A68F6AF61BBF06B400B63DB5 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		A68F6AF81BBF08D500B63DB5 /* WunderlistClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WunderlistClient.swift; sourceTree = "<group>"; };
+		A68F6AFC1BBF215900B63DB5 /* UPCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCClient.swift; sourceTree = "<group>"; };
+		A68F6B001BBF241E00B63DB5 /* UIView+RoundedCorners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RoundedCorners.h"; sourceTree = "<group>"; };
+		A68F6B011BBF241E00B63DB5 /* UIView+RoundedCorners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RoundedCorners.m"; sourceTree = "<group>"; };
 		A6D0103A1BBEC87D00D40C19 /* Restock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +130,52 @@
 			name = Scandit;
 			sourceTree = "<group>";
 		};
+		A68F6AF51BBF069F00B63DB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A68F6AF61BBF06B400B63DB5 /* Product.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A68F6AFE1BBF216000B63DB5 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				A68F6AF81BBF08D500B63DB5 /* WunderlistClient.swift */,
+				A68F6AFC1BBF215900B63DB5 /* UPCClient.swift */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		A68F6AFF1BBF240200B63DB5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C32C595C1BBED1E600171E3D /* Constants.swift */,
+				A68F6ACD1BBED7B500B63DB5 /* Restock-Bridging-Header.h */,
+				A68F6B001BBF241E00B63DB5 /* UIView+RoundedCorners.h */,
+				A68F6B011BBF241E00B63DB5 /* UIView+RoundedCorners.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A68F6B031BBF248200B63DB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A68F6AF31BBEEE8E00B63DB5 /* CurrentScanView.swift */,
+				A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A68F6B041BBF248800B63DB5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */,
+				C3D54CE41BBECB2200215034 /* SetupViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		A6D010311BBEC87D00D40C19 = {
 			isa = PBXGroup;
 			children = (
@@ -142,17 +197,16 @@
 		A6D0103C1BBEC87D00D40C19 /* Restock */ = {
 			isa = PBXGroup;
 			children = (
+				A68F6AFF1BBF240200B63DB5 /* Helpers */,
+				A68F6AFE1BBF216000B63DB5 /* Clients */,
+				A68F6AF51BBF069F00B63DB5 /* Model */,
 				A68F6AD01BBEDC5E00B63DB5 /* Scandit */,
 				A6D0103D1BBEC87D00D40C19 /* AppDelegate.swift */,
-				A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */,
-				A68F6AF31BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift */,
-				A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */,
+				A68F6B041BBF248800B63DB5 /* Controllers */,
+				A68F6B031BBF248200B63DB5 /* Views */,
 				A6D010441BBEC87D00D40C19 /* Assets.xcassets */,
 				A6D010461BBEC87D00D40C19 /* LaunchScreen.storyboard */,
 				A6D010491BBEC87D00D40C19 /* Info.plist */,
-				C3D54CE41BBECB2200215034 /* SetupViewController.swift */,
-				C32C595C1BBED1E600171E3D /* Constants.swift */,
-				A68F6ACD1BBED7B500B63DB5 /* Restock-Bridging-Header.h */,
 			);
 			path = Restock;
 			sourceTree = "<group>";
@@ -287,12 +341,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A68F6AF41BBEEE8E00B63DB5 /* CurrentScanNotificationView.swift in Sources */,
+				A68F6AF41BBEEE8E00B63DB5 /* CurrentScanView.swift in Sources */,
+				A68F6B021BBF241E00B63DB5 /* UIView+RoundedCorners.m in Sources */,
+				A68F6AF91BBF08D500B63DB5 /* WunderlistClient.swift in Sources */,
 				A6D010401BBEC87D00D40C19 /* ScanViewController.swift in Sources */,
 				C3D54CE51BBECB2200215034 /* SetupViewController.swift in Sources */,
 				A6D0103E1BBEC87D00D40C19 /* AppDelegate.swift in Sources */,
 				A68F6AF21BBEECCD00B63DB5 /* RecommendationTableViewCell.swift in Sources */,
 				C32C595D1BBED1E600171E3D /* Constants.swift in Sources */,
+				A68F6AF71BBF06B400B63DB5 /* Product.swift in Sources */,
+				A68F6AFD1BBF215900B63DB5 /* UPCClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

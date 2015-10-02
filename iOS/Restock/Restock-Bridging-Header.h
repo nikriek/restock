@@ -10,5 +10,6 @@
 #define Restock_Bridging_Header_h
 
 #import <ScanditBarcodeScanner/ScanditBarcodeScanner.h>
+#import "UIView+RoundedCorners.h"
 
 #endif /* Restock_Bridging_Header_h */
