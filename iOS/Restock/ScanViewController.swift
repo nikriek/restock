@@ -20,6 +20,9 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate, UITableViewDelegate
     
     let RecommendationTableViewCellIdentifier = "recommendationTableViewCellIdentifier"
     let CurrentScanNotificationViewIdentifier = "currentScanNotificationViewIdentifier"
+    let currentScanView = CurrentScanNotificationView()
+    var currentProduct: Product?
+    let wunderlistClient = WunderlistClient()
     
     init() {
         super.init(settings:SBSScanSettings.pre47DefaultSettings())
@@ -45,6 +48,11 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate, UITableViewDelegate
         tableView.delegate = self
         
         tableView.registerClass(RecommendationTableViewCell.self, forCellReuseIdentifier: RecommendationTableViewCellIdentifier)
+        tableView.registerClass(CurrentScanNotificationView.self, forHeaderFooterViewReuseIdentifier: CurrentScanNotificationViewIdentifier)
+        
+        currentScanView.undoButton.addTarget(self, action: "clickedUndo", forControlEvents: .TouchUpInside)
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,12 +62,14 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate, UITableViewDelegate
     
     func barcodePicker(picker: SBSBarcodePicker!, didScan session: SBSScanSession!) {
         let recognized = session.newlyRecognizedCodes
-        let code = recognized[0] as! SBSCode
+        let code = recognized.last as! SBSCode
         print(code.data)
-        /*NSArray* recognized = session.newlyRecognizedCodes;
-        SBSCode *code = [recognized firstObject];
-        // add your own code to handle the barcode result e.g.
-        NSLog(@"scanned %@ barcode: %@", code.symbology, code.data);*/
+        currentProduct = Product(upc: code.data)
+        if let name = currentProduct?.upc {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.currentScanView.setProductTitleName(name)
+            })
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -81,17 +91,16 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(CurrentScanNotificationViewIdentifier) as? CurrentScanNotificationView
-        if view == nil {
-            view = CurrentScanNotificationView()
-        }
-        return view
+        return currentScanView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.GridHeight * 2
     }
-
+    
+    func clickedUndo() {
+        
+    }
 
 }
 

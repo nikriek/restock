@@ -20,7 +20,7 @@ class CurrentScanNotificationView: UITableViewHeaderFooterView {
     
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Test"
+        label.textColor = UIColor.whiteColor()
         return label
     }()
     
@@ -42,7 +42,6 @@ class CurrentScanNotificationView: UITableViewHeaderFooterView {
             make.left.equalTo(self.snp_left).offset(Constants.GridWidth)
             make.right.equalTo(self.snp_right).offset(-1 * Constants.GridWidth)
         }
-        self.blurredBackgroundView.layer.cornerRadius = Constants.GridWidth
         
         self.label.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.snp_top)
@@ -58,7 +57,15 @@ class CurrentScanNotificationView: UITableViewHeaderFooterView {
             make.width.equalTo(Constants.GridWidth * 6)
         }
     }
+    
+    func setProductTitleName(name: String) {
+        let attrs = [NSFontAttributeName : UIFont.boldSystemFontOfSize(17)]
+        let attributedString = NSMutableAttributedString(string:name, attributes:attrs)
+        let addedString = NSMutableAttributedString(string:" added")
 
+        attributedString.appendAttributedString(addedString)
+        self.label.attributedText = attributedString
+    }
 
     /*
     // Only override drawRect: if you perform custom drawing.
