@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Restock</string>
+    <string name="wunderlist_error">There has been an error syncing to Wunderlist. Please restart and try again!</string>
 </resources>
