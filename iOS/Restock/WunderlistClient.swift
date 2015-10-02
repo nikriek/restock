@@ -12,9 +12,9 @@ import Alamofire
 class WunderlistClient: NSObject {
     
     var groceryListId : String
-    var accessToken : String
+    var accessToken : String = ""
     
-    let loginParameters = [X-Access-Token: accessToken, X-Client-ID: Constants.WunderlistClientId]
+    var loginParameters = ["X-Access-Token": accessToken, "X-Client-ID": Constants.WunderlistClientId]
     
     func findGroceriesList()    {
         Alamofire.request(.GET, "http://restock.thinkcarl.com/listId", parameters: loginParameters)
@@ -28,7 +28,7 @@ class WunderlistClient: NSObject {
     }
     
     func login()    {
-        UIApplication.sharedApplication().openURL("https://www.wunderlist.com/oauth/authorize?client_id=f7dff4e1225dc1459172&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM")
+        UIApplication.sharedApplication().openURL(NSURL(string:"https://www.wunderlist.com/oauth/authorize?client_id=f7dff4e1225dc1459172&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM")!)
     }
     
     func completeLogin(code: String)    {

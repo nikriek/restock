@@ -31,6 +31,7 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
+        self.title = "Restock"
         var bounds = self.navigationController?.navigationBar.bounds as CGRect!
         bounds.origin.y = -UIApplication.sharedApplication().statusBarFrame.size.height
         bounds.size.height += UIApplication.sharedApplication().statusBarFrame.size.height
