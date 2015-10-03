@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1815B36D80952135D979CE848C4627DBC873F84D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1815B36D80952135D979CE848C4627DBC873F84D" : 0,
+    "2045D86BC5D391C299DCC498309E722E037BFF4E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3F1BE056-5CA2-40A2-928A-2A32577E5F26",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1815B36D80952135D979CE848C4627DBC873F84D" : "Restock\/",
+    "2045D86BC5D391C299DCC498309E722E037BFF4E" : "Restock\/iOS\/OAuth2\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Restock",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOS\/Restock.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nikriek\/restock.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1815B36D80952135D979CE848C4627DBC873F84D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/p2\/OAuth2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2045D86BC5D391C299DCC498309E722E037BFF4E"
+    }
+  ]
+}

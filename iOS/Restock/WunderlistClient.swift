@@ -10,20 +10,20 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-/*
 class WunderlistClient: NSObject {
     
-    var groceryListId : Int? = nil
-    var accessToken : String = ""
+    static var groceryListId : Int? = nil
+    static var accessToken : String? = nil
+    
 
-    var loginParameters : [String: String] {
+    static var loginParameters : [String: String] {
         get {
-            return ["X-Access-Token": accessToken, "X-Client-ID": Constants.WunderlistClientId]
+            return ["X-Access-Token": self.accessToken!, "X-Client-ID": Constants.WunderlistClientId]
         }
     }
     
-    func findGroceriesList()    {
-        Alamofire.request(.GET, "http://restock.thinkcarl.com/listId", parameters: loginParameters)
+    class func findGroceriesList()    {
+        Alamofire.request(.GET, "http://restock.thinkcarl.com/listId", headers: loginParameters)
             .responseJSON { (_,_, result) in
                 switch result {
                 case .Success(let data):
@@ -37,11 +37,31 @@ class WunderlistClient: NSObject {
         }
     }
     
+    class func testLoginStatus(callback: Bool -> (), onFailure: () -> ())  {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let token = defaults.stringForKey("accessToken")
+        {
+            self.accessToken = token
+            Alamofire.request(.GET, "http://a.wunderlist.com/api/v1/user", headers: ["X-Client-ID": Constants.WunderlistClientId, "X-Access-Token": token])
+                .responseJSON { (_,_, result) in
+                    switch result {
+                    case .Success(let data):
+                        let json = JSON(data)
+                        callback(json["name"].string != nil)
+                    case .Failure(let (_,error) ):
+                        NSLog(String(error))
+                        onFailure()
+                    }
+            }
+            
+        }   else    {   callback(false) }
+    }
+    
     func login()    {
         UIApplication.sharedApplication().openURL(NSURL(string:"https://www.wunderlist.com/oauth/authorize?client_id=f7dff4e1225dc1459172&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM")!)
     }
     
-    func completeLogin(code: String)    {
+    class func completeLogin(code: String)    {
         let parameters = ["client_id": Constants.WunderlistClientId,
             "client_secret": Constants.WunderlistClientSecret,
             "code": code]
@@ -50,7 +70,10 @@ class WunderlistClient: NSObject {
             switch result {
             case .Success(let data):
                 let json = JSON(data)
-                self.accessToken = json["access_token"].stringValue
+                if let token = json["access_token"].string {
+                    self.accessToken = token
+                    NSUserDefaults.standardUserDefaults().setObject(token, forKey: "accessToken")
+                }
             case .Failure(let error):
                 NSLog("Failure \(error)")
             }
@@ -64,4 +87,4 @@ class WunderlistClient: NSObject {
     func removeLastAddedProduct() {
         
     }
-}*/
+}

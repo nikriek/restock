@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var didSetView = false
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -20,13 +21,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
         self.window?.tintColor = UIColor.whiteColor()
+        if(!didSetView) {
+            let setupViewController = SetupViewController()
+            self.window?.rootViewController = setupViewController
+        }
+
+        return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool    {
+        let components = String(url).componentsSeparatedByString("//")
+        WunderlistClient.completeLogin(components.last!)
         
         SBSLicense.setAppKey(Constants.ScanditBarcodeScannerAppKey)
         let scanViewController = ScanViewController()
         scanViewController.startScanning()
         let rootViewController = UINavigationController(rootViewController: scanViewController )
         self.window?.rootViewController = rootViewController
-
+        didSetView = true
         return true
     }
 
