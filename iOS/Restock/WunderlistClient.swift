@@ -94,10 +94,11 @@ class WunderlistClient: NSObject {
     
     class func addProduct(product: Product) {
         lastProduct = nil
-        let values = ["list_id": String(self.groceryListId),
-            "title": product.name ?? "Unnamed product"]
-        Alamofire.request(.POST, "https://a.wunderlist.com/api/v1/tasks", parameters: values, headers: loginParameters).responseJSON  {
+        let values = ["list_id": self.groceryListId!,
+        "title": product.name ?? "Unnamed product"] as? [String : AnyObject]
+        Alamofire.request(.POST, "https://a.wunderlist.com/api/v1/tasks", parameters: values, encoding: .JSON, headers: loginParameters).responseJSON  {
             (_,_, result) in
+            print(result.value)
             switch result {
             case .Success(let data):
                 let json = JSON(data)
