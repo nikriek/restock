@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var didSetView = false
     
     let beaconManager = ESTBeaconManager()
 
@@ -40,12 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool    {
         let components = String(url).componentsSeparatedByString("//")
         WunderlistClient.completeLogin(components.last!)
-        
-        //run once
-        WunderlistClient.findAndSaveGroceriesList()
-        
-        
-        didSetView = true
         return true
     }
 
