@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebbaa658-e895-4b8f-b1e5-b9f7dfca5ea1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS/Restock/Constants.swift" afterPath="$PROJECT_DIR$/iOS/Restock/Constants.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/restock.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS/Restock/Info.plist" afterPath="$PROJECT_DIR$/iOS/Restock/Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS/Restock/ScanViewController.swift" afterPath="$PROJECT_DIR$/iOS/Restock/ScanViewController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS/Restock/WunderlistClient.swift" afterPath="$PROJECT_DIR$/iOS/Restock/WunderlistClient.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/iOS/Pods/Pods.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Wunderlist-redirect/server.js" afterPath="$PROJECT_DIR$/Wunderlist-redirect/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="restock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +34,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wunderlist-redirect/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.33088234">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.14506769">
+              <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -57,6 +61,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Wunderlist-redirect/server.js" />
         <option value="$PROJECT_DIR$/Wunderlist-redirect/server.js" />
       </list>
     </option>
@@ -109,7 +114,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="restock" />
+              <option name="myItemId" value="Restock" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -119,7 +124,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="restock" />
+              <option name="myItemId" value="Restock" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -391,6 +396,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
@@ -418,7 +429,7 @@
       <created>1443800075840</created>
       <option name="number" value="Default" />
       <updated>1443800075840</updated>
-      <workItem from="1443800077350" duration="10682000" />
+      <workItem from="1443800077350" duration="13106000" />
     </task>
     <task id="LOCAL-00001" summary="Add Wunderlist redirection handling server">
       <created>1443808050460</created>
@@ -430,7 +441,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10682000" />
+    <option name="totallyTimeSpent" value="13106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -492,8 +503,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Wunderlist-redirect/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.33088234">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.14506769">
+          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
           <folding />
         </state>
       </provider>
