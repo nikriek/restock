@@ -2,4 +2,14 @@
     <string name="app_name">Restock</string>
     <string name="wunderlist_error">There has been an error syncing to Wunderlist. Please restart and try again!</string>
     <string name="undo">Undo</string>
+    <string name="added">added</string>
+    <string name="recent_scans">Recent scans</string>
+    <string name="add_again">Add again</string>
+    <string name="recommendations">Recommendations</string>
+    <string name="add_to_list">Add to list</string>
+    <string name="go_to_wunderlist">Go to Wunderlist</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
+    <string name="quick_start">Quick Start</string>
+    <string name="rate_us">Rate Us</string>
 </resources>

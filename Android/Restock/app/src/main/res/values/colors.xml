@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="overlay_background">#A0101010</color>
-    <color name="overlay_corners">#A0A0A0A0</color>
+    <color name="overlay_background">#A0080808</color>
+    <color name="overlay_corners">#A0404040</color>
     <color name="overlay_text">#CCFFFFFF</color>
+    <color name="overlay_text_dark">#CCACA5A9</color>
 
 </resources>
