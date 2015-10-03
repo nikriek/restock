@@ -34,13 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         beaconManager.requestAlwaysAuthorization()
         beaconManager.startMonitoringForRegion(region)
         
-        
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool    {
         let components = String(url).componentsSeparatedByString("//")
         WunderlistClient.completeLogin(components.last!)
+        
+        //run once
+        WunderlistClient.findAndSaveGroceriesList()
         
         
         didSetView = true

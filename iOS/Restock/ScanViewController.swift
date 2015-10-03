@@ -12,7 +12,6 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
 
     let currentScanView = CurrentScanViewController()
 
-    //let wunderlistClient = WunderlistClient()
     private var currentScanViewOpened = false
     
     init() {
@@ -59,12 +58,24 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        // If not logged in
-        if (!true) {
-            let viewController = SetupViewController()
-            viewController.modalPresentationStyle = .OverCurrentContext
-            self.presentViewController(viewController, animated: false, completion: nil)
-        }
+        tryLogin()
+    }
+    
+    func tryLogin() {
+        WunderlistClient.testLoginStatus({loggedIn in
+            if(!loggedIn)    {
+                let viewController = SetupViewController()
+                viewController.modalPresentationStyle = .OverCurrentContext
+                self.presentViewController(viewController, animated: false, completion: nil)
+            }
+            }, onFailure: {
+                let alertController = UIAlertController(title: "Networking error", message: "The Wunderlist server cannot be reached", preferredStyle: .Alert)
+                
+                let defaultAction = UIAlertAction(title: "Try Again", style: .Default, handler: {_ in self.tryLogin()    })
+                alertController.addAction(defaultAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +89,8 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         print(code.data)
         
         UPCClient.getProduct(code.data) { (product, error) -> () in
-            self.currentScanView.currentProduct = product            
+            self.currentScanView.currentProduct = product
+            WunderlistClient.addProduct(product!)
         }
     }
     

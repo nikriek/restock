@@ -17,6 +17,7 @@ class WunderlistClient: NSObject {
     }()
     static var accessToken : String? = nil
     
+    static let sharedInstance = WunderlistClient()
 
     static var loginParameters : [String: String] {
         get {
@@ -33,6 +34,7 @@ class WunderlistClient: NSObject {
                     if let id = json["id"].int  {
                         self.groceryListId = id
                         NSUserDefaults.standardUserDefaults().setInteger(id, forKey: "groceryListId")
+                        NSLog("Got list id \(id)")
                     }
                 case .Failure(let error):
                     NSLog("Failure \(error)")

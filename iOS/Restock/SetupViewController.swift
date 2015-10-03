@@ -51,24 +51,6 @@ class SetupViewController : UIViewController    {
             make.height.equalTo(Constants.GridHeight * 2)
         }
         
-        //tryLogin()
-    }
-    
-    func tryLogin() {
-        WunderlistClient.testLoginStatus({loggedIn in
-            if(loggedIn)    {
-                self.performSegueToScanView()
-            }   else    {
-                self.enableLoginButton()
-            }
-            }, onFailure: {
-                let alertController = UIAlertController(title: "Networking error", message: "The Wunderlist server cannot be reached", preferredStyle: .Alert)
-                
-                let defaultAction = UIAlertAction(title: "Try Again", style: .Default, handler: {_ in self.tryLogin()    })
-                alertController.addAction(defaultAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-        })
     }
     
     func login(sender: UIButton!)    {
