@@ -13,6 +13,7 @@ class Product: NSObject {
     var customDescription: String?
     var name: String?
     var imageUrl: String?
+    var amount: String?
     
     init(upc: String) {
         super.init()

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
-        
+        self.window?.tintColor = UIColor.whiteColor()
         
         SBSLicense.setAppKey(Constants.ScanditBarcodeScannerAppKey)
         let scanViewController = ScanViewController()

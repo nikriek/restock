@@ -12,7 +12,7 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
 
     let currentScanView = CurrentScanView()
     var currentProduct: Product?
-    let wunderlistClient = WunderlistClient()
+    //let wunderlistClient = WunderlistClient()
     private var currentScanViewOpened = false
     
     init() {
@@ -54,6 +54,9 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         currentScanView.addGestureRecognizer(swipeGestureRecognizer)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleGesture:")
         currentScanView.addGestureRecognizer(tapGestureRecognizer)
+        
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "Hamburger"), style: .Plain, target: self, action: "clickedHamburger")
+        self.navigationItem.rightBarButtonItem = barButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +89,7 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     }
     
     func handleGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+        if let _ = gesture as? UISwipeGestureRecognizer {
             toggleCurrentScanView()
         } else if let tapGesture = gesture as? UITapGestureRecognizer {
             if tapGesture.state == .Ended {
@@ -109,6 +112,12 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         }) { (_) -> Void in
             self.currentScanViewOpened = !self.currentScanViewOpened
         }
+    }
+    
+    func clickedHamburger() {
+        let moreViewController = MoreViewController()
+        moreViewController.modalTransitionStyle = .CoverVertical
+        self.presentViewController(moreViewController, animated: true, completion: nil)
     }
 }
 

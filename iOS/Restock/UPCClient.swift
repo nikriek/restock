@@ -10,14 +10,11 @@ import Foundation
 import Alamofire
 
 class UPCClient: NSObject {
-    static let URL = "http://eandata.com/feed/"
+    static let URL = "http://restock.nico.is/api.php"
     
     class func getProduct(upc: String, completion: (Product?, ErrorType?) -> ()) {
         let paramters = [
-            "v" : "3",
-            "keycode": Constants.EandataKeycode,
-            "mode" : "json",
-            "find" : upc
+            "q" : upc
         ]
         Alamofire.request(.GET, UPCClient.URL, parameters: paramters, encoding: .URL, headers: nil)
             .responseJSON { (_, _, result) -> Void in
@@ -25,8 +22,9 @@ class UPCClient: NSObject {
                 case .Success(let JSON):
                     print(JSON)
                     let product = Product(upc: upc)
-                    product.name = JSON.valueForKeyPath("product")?.valueForKeyPath("attributes")?.valueForKeyPath("product") as? String
-                    product.customDescription = JSON.valueForKeyPath("product")?.valueForKeyPath("attributes")?.valueForKeyPath("description") as? String
+                    product.name = JSON.valueForKeyPath("title") as? String
+                    product.customDescription = JSON.valueForKeyPath("image") as? String
+                    product.amount = JSON.valueForKeyPath("amount") as? String
                     completion(product, nil)
                 case .Failure(_, let error):
                     print(error)

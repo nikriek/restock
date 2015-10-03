@@ -12,6 +12,7 @@ import QuartzCore
 
 class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
     private let RecommendationTableViewCellIdentifier = "recommendationTableViewCellIdentifier"
+    private let RecommendationHeaderViewIdentifier = "recommendationHeaderViewIdentifier"
     
     let undoButton: UIButton = {
         let button = UIButton(type: .Custom)
@@ -32,7 +33,7 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
     }()
     
     let tableView: UITableView = {
-        let tableView = UITableView(frame: CGRectZero)
+        let tableView = UITableView(frame: CGRectZero, style: .Grouped)
         tableView.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
         tableView.backgroundColor = UIColor.clearColor()
         tableView.showsVerticalScrollIndicator = false
@@ -79,7 +80,7 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         
         tableView.registerClass(RecommendationTableViewCell.self, forCellReuseIdentifier: RecommendationTableViewCellIdentifier)
-
+        tableView.registerClass(RecommendationHeaderView.self, forHeaderFooterViewReuseIdentifier: RecommendationHeaderViewIdentifier)
     }
     
     func setProductTitleName(name: String) {
@@ -93,7 +94,7 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        blurredBackgroundView.setRoundedCorners([.TopLeft, .TopRight    ], radius: Constants.GridWidth)
+        blurredBackgroundView.setRoundedCorners([.TopLeft, .TopRight], radius: Constants.GridWidth)
         undoButton.setRoundedCorners(.AllCorners, radius: 2.0)
     }
 
@@ -111,12 +112,25 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = RecommendationTableViewCell()
         }
+        cell?.backgroundColor = UIColor.clearColor()
         
         return cell!
     }
+
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(RecommendationHeaderViewIdentifier) as? RecommendationHeaderView
+        if view == nil {
+            view = RecommendationHeaderView()
+        }
+        return view!
+    }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Recently added"
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return Constants.GridHeight * 2
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
 
 }

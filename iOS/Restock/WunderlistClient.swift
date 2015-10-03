@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+/*
 class WunderlistClient: NSObject {
     
     var groceryListId : String
@@ -50,4 +51,4 @@ class WunderlistClient: NSObject {
     func removeLastAddedProduct() {
         
     }
-}
+}*/
