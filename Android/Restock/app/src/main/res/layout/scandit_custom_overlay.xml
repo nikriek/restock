@@ -17,6 +17,14 @@
             android:layout_marginRight="0dp"
             android:background="@color/overlay_background">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name"
+                android:textColor="@color/overlay_text"
+                android:textSize="32sp" />
+
 
             <ImageButton
                 android:layout_width="54dp"
@@ -32,27 +40,61 @@
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/undo_menu"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:layout_below="@id/overlay_main">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_box">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/rounded_box">
 
-            <Button
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="8dp"
-                android:background="@null" />
+                <Button
+                    android:id="@+id/undo_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/rounded_box"
+                    android:text="@string/undo"
+                    android:textColor="@color/overlay_text"
+                    android:textSize="18sp" />
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/product_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toLeftOf="@id/undo_button" />
+
+                <ImageView
+                    android:id="@+id/product_thumbnail"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_toLeftOf="@id/product_info_text"
+                    android:src="@null"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/overlay_recent_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
 
     </ScrollView>
 

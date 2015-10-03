@@ -54,8 +54,10 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Restock/Alamofire.framework'
   install_framework 'Pods-Restock/SnapKit.framework'
+  install_framework 'Pods-Restock/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Restock/Alamofire.framework'
   install_framework 'Pods-Restock/SnapKit.framework'
+  install_framework 'Pods-Restock/SwiftyJSON.framework'
 fi
