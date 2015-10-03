@@ -23,7 +23,7 @@ class UPCClient: NSObject {
                     print(JSON)
                     let product = Product(upc: upc)
                     product.name = JSON.valueForKeyPath("title") as? String
-                    product.customDescription = JSON.valueForKeyPath("image") as? String
+                    product.imageUrl = JSON.valueForKeyPath("image") as? String
                     product.amount = JSON.valueForKeyPath("amount") as? String
                     completion(product, nil)
                 case .Failure(_, let error):

@@ -15,25 +15,29 @@ class RecommendationHeaderView: UITableViewHeaderFooterView {
     let label: UILabel = {
         let label = UILabel(frame: CGRectZero)
         label.text = "Recommendations"
+        label.textColor = UIColor.whiteColor()
         return label
     }()
     
-    convenience init() {
-        self.init(frame:CGRectZero)
-        
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.iconImageView)
-        self.snp_makeConstraints { (make) -> Void in
+        self.iconImageView.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(Constants.GridWidth)
             make.top.equalTo(self.contentView.snp_top)
             make.bottom.equalTo(self.contentView.snp_top)
             make.width.equalTo(self.contentView.snp_height)
         }
         self.contentView.addSubview(self.label)
-        self.snp_makeConstraints { (make) -> Void in
+        self.label.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.iconImageView.snp_right).offset(Constants.GridWidth)
             make.right.equalTo(self.contentView.snp_right).offset(-1 * Constants.GridWidth)
             make.top.equalTo(self.contentView.snp_top)
             make.bottom.equalTo(self.contentView.snp_bottom)
         }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

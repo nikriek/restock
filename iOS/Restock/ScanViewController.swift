@@ -10,8 +10,8 @@ import UIKit
 
 class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
 
-    let currentScanView = CurrentScanView()
-    var currentProduct: Product?
+    let currentScanView = CurrentScanViewController()
+
     //let wunderlistClient = WunderlistClient()
     private var currentScanViewOpened = false
     
@@ -41,20 +41,20 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         self.navigationController?.navigationBar.addSubview(visualEffectView)
         
         
-        self.view.addSubview(currentScanView)
-        currentScanView.snp_makeConstraints { (make) -> Void in
+        self.addChildViewController(currentScanView)
+        self.view.addSubview(currentScanView.view)
+        currentScanView.view.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.view.snp_left)
             make.right.equalTo(self.view.snp_right)
             make.top.equalTo(self.view.snp_bottom).offset(-1 * Constants.GridHeight * 2)
             make.height.equalTo(Constants.GridHeight*10)
         }
-        currentScanView.undoButton.addTarget(self, action: "clickedUndo", forControlEvents: .TouchUpInside)
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleGesture:")
         swipeGestureRecognizer.direction = [.Up, .Down]
-        currentScanView.addGestureRecognizer(swipeGestureRecognizer)
+        currentScanView.view.addGestureRecognizer(swipeGestureRecognizer)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleGesture:")
-        currentScanView.addGestureRecognizer(tapGestureRecognizer)
-        
+        currentScanView.view.addGestureRecognizer(tapGestureRecognizer)
+        currentScanView.layoutSubviews()
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "Hamburger"), style: .Plain, target: self, action: "clickedHamburger")
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
@@ -68,24 +68,10 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         let recognized = session.newlyRecognizedCodes
         let code = recognized.last as! SBSCode
         print(code.data)
+        
         UPCClient.getProduct(code.data) { (product, error) -> () in
-            self.currentProduct = product
-            if let name = self.currentProduct?.name {
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.currentScanView.setProductTitleName(name)
-                })
-            } else if let upc = self.currentProduct?.upc {
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.currentScanView.setProductTitleName(upc)
-                })
-            }
+            self.currentScanView.currentProduct = product            
         }
-        
-        
-    }
-
-    func clickedUndo() {
-        
     }
     
     func handleGesture(gesture: UIGestureRecognizer) {
@@ -99,7 +85,7 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     }
     
     func toggleCurrentScanView() {
-        self.currentScanView.snp_updateConstraints { (make) -> Void in
+        self.currentScanView.view.snp_updateConstraints { (make) -> Void in
             if (currentScanViewOpened) {
                 make.top.equalTo(self.view.snp_bottom).offset(-1 * Constants.GridHeight * 2)
             } else {

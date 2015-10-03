@@ -23,8 +23,7 @@
 		A68F6AE61BBEDCD500B63DB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE51BBEDCD500B63DB5 /* QuartzCore.framework */; };
 		A68F6AE81BBEDCDC00B63DB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */; };
 		A68F6AEA1BBEDCE100B63DB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */; };
-		A68F6AF21BBEECCD00B63DB5 /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		A68F6AF41BBEEE8E00B63DB5 /* CurrentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF31BBEEE8E00B63DB5 /* CurrentScanView.swift */; settings = {ASSET_TAGS = (); }; };
+		A68F6AF41BBEEE8E00B63DB5 /* CurrentScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF31BBEEE8E00B63DB5 /* CurrentScanViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A68F6AF71BBF06B400B63DB5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF61BBF06B400B63DB5 /* Product.swift */; settings = {ASSET_TAGS = (); }; };
 		A68F6AF91BBF08D500B63DB5 /* WunderlistClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AF81BBF08D500B63DB5 /* WunderlistClient.swift */; settings = {ASSET_TAGS = (); }; };
 		A68F6AFD1BBF215900B63DB5 /* UPCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6AFC1BBF215900B63DB5 /* UPCClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -59,8 +58,7 @@
 		A68F6AE51BBEDCD500B63DB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A68F6AE71BBEDCDC00B63DB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A68F6AE91BBEDCE100B63DB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewCell.swift; sourceTree = "<group>"; };
-		A68F6AF31BBEEE8E00B63DB5 /* CurrentScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScanView.swift; sourceTree = "<group>"; };
+		A68F6AF31BBEEE8E00B63DB5 /* CurrentScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScanViewController.swift; sourceTree = "<group>"; };
 		A68F6AF61BBF06B400B63DB5 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A68F6AF81BBF08D500B63DB5 /* WunderlistClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WunderlistClient.swift; sourceTree = "<group>"; };
 		A68F6AFC1BBF215900B63DB5 /* UPCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCClient.swift; sourceTree = "<group>"; };
@@ -165,8 +163,6 @@
 		A68F6B031BBF248200B63DB5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A68F6AF31BBEEE8E00B63DB5 /* CurrentScanView.swift */,
-				A68F6AF11BBEECCD00B63DB5 /* RecommendationTableViewCell.swift */,
 				A68F6B051BBF4CAA00B63DB5 /* RecommendationHeaderView.swift */,
 			);
 			name = Views;
@@ -175,6 +171,7 @@
 		A68F6B041BBF248800B63DB5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A68F6AF31BBEEE8E00B63DB5 /* CurrentScanViewController.swift */,
 				A6D0103F1BBEC87D00D40C19 /* ScanViewController.swift */,
 				C3D54CE41BBECB2200215034 /* SetupViewController.swift */,
 				A68F6B071BBF56B700B63DB5 /* MoreViewController.swift */,
@@ -347,14 +344,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A68F6AF41BBEEE8E00B63DB5 /* CurrentScanView.swift in Sources */,
+				A68F6AF41BBEEE8E00B63DB5 /* CurrentScanViewController.swift in Sources */,
 				A68F6B061BBF4CAA00B63DB5 /* RecommendationHeaderView.swift in Sources */,
 				A68F6B021BBF241E00B63DB5 /* UIView+RoundedCorners.m in Sources */,
 				A68F6AF91BBF08D500B63DB5 /* WunderlistClient.swift in Sources */,
 				A6D010401BBEC87D00D40C19 /* ScanViewController.swift in Sources */,
 				C3D54CE51BBECB2200215034 /* SetupViewController.swift in Sources */,
 				A6D0103E1BBEC87D00D40C19 /* AppDelegate.swift in Sources */,
-				A68F6AF21BBEECCD00B63DB5 /* RecommendationTableViewCell.swift in Sources */,
 				C32C595D1BBED1E600171E3D /* Constants.swift in Sources */,
 				A68F6B081BBF56B700B63DB5 /* MoreViewController.swift in Sources */,
 				A68F6AF71BBF06B400B63DB5 /* Product.swift in Sources */,
