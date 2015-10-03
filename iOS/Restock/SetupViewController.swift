@@ -18,6 +18,30 @@ class SetupViewController : UIViewController    {
         return button
     }()
     
+    let iconImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "Icon"))
+        imageView.contentMode = .Center
+        return imageView
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Restock"
+        label.textAlignment = .Center
+        label.font = UIFont.systemFontOfSize(25)
+        label.textColor = UIColor.whiteColor()
+        return label
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hungry?\n\n1. Scan it.\n2. Put it on your todo list.\n3. Get coupons."
+        label.numberOfLines = 6
+        label.textAlignment = .Center
+        label.textColor = UIColor.whiteColor()
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +55,29 @@ class SetupViewController : UIViewController    {
         
         self.view.addSubview(blurEffectView)
         
-
+        self.view.addSubview(iconImageView)
+        iconImageView.snp_makeConstraints { (make) -> Void in
+            make.top.top.equalTo(self.view.snp_top).offset(Constants.GridHeight * 4)
+            make.left.equalTo(self.view.snp_left).offset(Constants.GridWidth * 2)
+            make.right.equalTo(self.view.snp_right).offset(Constants.GridWidth * -2)
+            make.height.equalTo(Constants.GridHeight * 4)
+        }
+        self.view.addSubview(titleLabel)
+        titleLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.iconImageView.snp_bottom).offset(Constants.GridHeight)
+            make.left.equalTo(self.view.snp_left).offset(Constants.GridWidth * 2)
+            make.right.equalTo(self.view.snp_right).offset(Constants.GridWidth * -2)
+            make.height.equalTo(Constants.GridHeight * 3)
+        }
+        
+        self.view.addSubview(descriptionLabel)
+        descriptionLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.titleLabel).offset(Constants.GridHeight * 2)
+            make.left.equalTo(self.view.snp_left).offset(Constants.GridWidth * 6)
+            make.right.equalTo(self.view.snp_right).offset(Constants.GridWidth * -6)
+            make.height.equalTo(Constants.GridHeight * 5)
+        }
+        
         self.view.addSubview(wunderlistButton)
         wunderlistButton.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(Constants.GridWidth * 4)
@@ -48,9 +94,14 @@ class SetupViewController : UIViewController    {
         UIApplication.sharedApplication().openURL(NSURL(string:"https://www.wunderlist.com/oauth/authorize?client_id=f7dff4e1225dc1459172&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM")!)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.layoutSubviews()
+    }
+    
     func layoutSubviews() {
         self.view.layoutSubviews()
-        wunderlistButton.setRoundedCorners(.AllCorners, radius: 2.0)
+        wunderlistButton.setRoundedCorners(.AllCorners, radius: 4.0)
+
     }
     
     

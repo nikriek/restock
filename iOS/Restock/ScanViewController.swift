@@ -121,7 +121,7 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     }
     
     func clickedHamburger() {
-        let moreViewController = UINavigationController(rootViewController: MoreViewController())
+        let moreViewController = UINavigationController(rootViewController: MoreTableViewController())
         moreViewController.modalPresentationStyle = .OverCurrentContext
         self.presentViewController(moreViewController, animated: true, completion: nil)
     }

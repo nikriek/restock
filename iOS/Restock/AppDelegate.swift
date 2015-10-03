@@ -21,12 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
         self.window?.tintColor = UIColor.whiteColor()
-        
+
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         SBSLicense.setAppKey(Constants.ScanditBarcodeScannerAppKey)
         let scanViewController = ScanViewController()
         scanViewController.startScanning()
         let rootViewController = UINavigationController(rootViewController: scanViewController )
+
         self.window?.rootViewController = rootViewController
         
         let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 16187, minor: 13649, identifier: "Kitchen")
