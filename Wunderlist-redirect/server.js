@@ -34,6 +34,7 @@ app.get('/listId', function (req, res) {
 var accesstoken = req.query.access_token;
 if(accesstoken == undefined)    {
     res.end('No access token detected');
+    console.log('No access token detected');
     return;
 }
 request({url: 'http://a.wunderlist.com/api/v1/lists', headers: {
@@ -44,7 +45,7 @@ request({url: 'http://a.wunderlist.com/api/v1/lists', headers: {
             var array = response.body
             for(var i in array) {
                 console.log(array[i].title);
-                if (array[i].title == "Groceries") {
+                if (array[i].title == "Restock-Groceries") {
                     groceryListId = array[i].id;
                     console.log('Found id ' + groceryListId);
                     break;

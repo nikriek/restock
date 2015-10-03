@@ -22,8 +22,8 @@ class WunderlistClient: NSObject {
         }
     }
     
-    class func findGroceriesList()    {
-        Alamofire.request(.GET, "http://restock.thinkcarl.com/listId", headers: loginParameters)
+    class func findAndSaveGroceriesList()    {
+        Alamofire.request(.GET, "http://restock.thinkcarl.com/listId", parameters: ["access_token": self.accessToken!])
             .responseJSON { (_,_, result) in
                 switch result {
                 case .Success(let data):
@@ -47,7 +47,9 @@ class WunderlistClient: NSObject {
                     switch result {
                     case .Success(let data):
                         let json = JSON(data)
-                        callback(json["name"].string != nil)
+                        let user = json["name"].string
+                        NSLog("Logged in as user \(user)");
+                        callback(user != nil)
                     case .Failure(let (_,error) ):
                         NSLog(String(error))
                         onFailure()
@@ -80,11 +82,33 @@ class WunderlistClient: NSObject {
         }
     }
     
-    func addProduct(product: Product) {
-        
+    static var lastProduct : Int?
+    
+    class func addProduct(product: Product) {
+        lastProduct = nil
+        let values = ["list_id": String(self.groceryListId),
+            "title": product.name ?? "Unnamed product"]
+        Alamofire.request(.POST, "https://a.wunderlist.com/api/v1/tasks", parameters: values, headers: loginParameters).responseJSON  {
+            (_,_, result) in
+            switch result {
+            case .Success(let data):
+                let json = JSON(data)
+                if let id = json["id"].int {
+                    NSLog("Added task #\(id)")
+                    lastProduct = id
+                    // success callback maybe?
+                }
+            case .Failure(let error):
+                NSLog("Failure \(error)")
+            }
+        }
+
     }
     
-    func removeLastAddedProduct() {
-        
+    class func removeLastAddedProduct() {
+        if let id = lastProduct {
+            Alamofire.request(.DELETE, "https://a.wunderlist.com/api/v1/tasks/\(id)", headers: loginParameters)
+            NSLog("Deleting task #\(id)")
+        }
     }
 }
