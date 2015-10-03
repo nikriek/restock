@@ -60,7 +60,7 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     
     override func viewDidAppear(animated: Bool) {
         // If not logged in
-        if (true) {
+        if (!true) {
             let viewController = SetupViewController()
             viewController.modalPresentationStyle = .OverCurrentContext
             self.presentViewController(viewController, animated: false, completion: nil)

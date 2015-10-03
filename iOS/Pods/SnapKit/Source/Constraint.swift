@@ -138,34 +138,24 @@ internal class ConcreteConstraint: Constraint {
     }
     
     internal override func activate() -> Void {
-        guard self.installInfo != nil else {
+        if NSLayoutConstraint.respondsToSelector("activateConstraints:") && self.installInfo != nil {
+            let layoutConstraints = self.installInfo!.layoutConstraints.allObjects as! [LayoutConstraint]
+            if layoutConstraints.count > 0 {
+                NSLayoutConstraint.activateConstraints(layoutConstraints)
+            }
+        } else {
             self.install()
-            return
-        }
-        #if SNAPKIT_DEPLOYMENT_LEGACY
-        guard #available(iOS 8.0, OSX 10.10, *) else {
-            self.install()
-            return
-        }
-        #endif
-        let layoutConstraints = self.installInfo!.layoutConstraints.allObjects as! [LayoutConstraint]
-        if layoutConstraints.count > 0 {
-            NSLayoutConstraint.activateConstraints(layoutConstraints)
         }
     }
     
     internal override func deactivate() -> Void {
-        guard self.installInfo != nil else {
-            return
-        }
-        #if SNAPKIT_DEPLOYMENT_LEGACY
-        guard #available(iOS 8.0, OSX 10.10, *) else {
-            return
-        }
-        #endif
-        let layoutConstraints = self.installInfo!.layoutConstraints.allObjects as! [LayoutConstraint]
-        if layoutConstraints.count > 0 {
-            NSLayoutConstraint.deactivateConstraints(layoutConstraints)
+        if NSLayoutConstraint.respondsToSelector("deactivateConstraints:") && self.installInfo != nil {
+            let layoutConstraints = self.installInfo!.layoutConstraints.allObjects as! [LayoutConstraint]
+            if layoutConstraints.count > 0 {
+                NSLayoutConstraint.deactivateConstraints(layoutConstraints)
+            }
+        } else {
+            self.uninstall()
         }
     }
     
@@ -251,11 +241,7 @@ internal class ConcreteConstraint: Constraint {
             let layoutConstant: CGFloat = layoutToAttribute.snp_constantForValue(self.constant)
             
             // get layout to
-            #if os(iOS)
-            var layoutTo: AnyObject? = self.toItem.view ?? self.toItem.layoutSupport
-            #else
-            var layoutTo: AnyObject? = self.toItem.view
-            #endif
+            var layoutTo: View? = self.toItem.view
             if layoutTo == nil && layoutToAttribute != .Width && layoutToAttribute != .Height {
                 layoutTo = installOnView
             }

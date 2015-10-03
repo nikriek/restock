@@ -458,6 +458,7 @@
 			baseConfigurationReference = 410BE11F328E0A6561385C68 /* Pods-Restock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Restock",
@@ -475,6 +476,7 @@
 			baseConfigurationReference = 793639D5BF1BA944ED986DC6 /* Pods-Restock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Restock",

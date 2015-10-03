@@ -11,5 +11,6 @@
 
 #import <ScanditBarcodeScanner/ScanditBarcodeScanner.h>
 #import "UIView+RoundedCorners.h"
+#import <EstimoteSDK/EstimoteSDK.h>
 
 #endif /* Restock_Bridging_Header_h */

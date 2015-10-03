@@ -1,16 +1,19 @@
 PODS:
   - Alamofire (2.0.2)
-  - SnapKit (0.15.0)
+  - EstimoteSDK (3.6.0)
+  - SnapKit (0.14.0)
   - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
   - Alamofire
+  - EstimoteSDK
   - SnapKit
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  EstimoteSDK: a4aa5329d6c9e3589554555d4dd8dddbe6809161
+  SnapKit: f42352ef34953866da0de1e1009c2ff82588a95e
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0.beta.4

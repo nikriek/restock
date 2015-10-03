@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var didSetView = false
-
+    
+    let beaconManager = ESTBeaconManager()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,7 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         scanViewController.startScanning()
         let rootViewController = UINavigationController(rootViewController: scanViewController )
         self.window?.rootViewController = rootViewController
-2
+        
+        let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 16187, minor: 13649, identifier: "Kitchen")
+        beaconManager.requestAlwaysAuthorization()
+        beaconManager.startMonitoringForRegion(region)
+        
+        
         return true
     }
     
