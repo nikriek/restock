@@ -26,7 +26,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
-                android:src="@raw/flashlight_turn_off_icon"
+                android:src="@raw/flashlight_turn_on_icon"
                 android:background="@null" />
 
             <TextView
@@ -83,6 +83,16 @@
                     android:textColor="@color/overlay_text"
                     android:textSize="18sp" />
 
+                <ImageView
+                    android:id="@+id/product_thumbnail"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@null"
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/product_info_text"
                     android:layout_width="match_parent"
@@ -90,17 +100,11 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
                     android:layout_toLeftOf="@id/undo_button"
+                    android:layout_toRightOf="@id/product_thumbnail"
                     android:ellipsize="start"
                     android:textColor="@color/overlay_text"
                     android:textSize="20sp" />
 
-                <ImageView
-                    android:id="@+id/product_thumbnail"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_toLeftOf="@id/product_info_text"
-                    android:src="@null"
-                    android:visibility="gone" />
 
             </RelativeLayout>
 

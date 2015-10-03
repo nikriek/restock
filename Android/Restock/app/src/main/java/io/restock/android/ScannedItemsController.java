@@ -12,8 +12,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
@@ -34,7 +36,7 @@ public class ScannedItemsController {
 
     private LinkedList<Product> recommendations;
 
-    private static final int UNDO_TIME = 3000;
+    private static final int UNDO_TIME = 4000;
     private Timer undoTimer;
 
     public ScannedItemsController(Context context, int list_id, ProductPollListener pollListener) {
@@ -83,12 +85,21 @@ public class ScannedItemsController {
         // Truncate for Wunderlist API
         name = name.substring(0, Math.min(name.length(), 256));
 
+        JSONObject params = new JSONObject();
+        try {
+            params.put("list_id", list_id);
+            params.put("title", name);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         JsonObjectRequest wunderlistRequest = new JsonObjectRequest(Request.Method.POST,
-                Constants.WUNDERLIST_TASKURL + "?list_id=" + list_id, "&title=" + name,
+                Constants.WUNDERLIST_TASKURL, params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         archivedProducts.add(0, product);
+                        Toast.makeText(context, context.getString(R.string.wunderlist_success), Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -99,12 +110,14 @@ public class ScannedItemsController {
                 }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = super.getHeaders();
+                Map<String, String> headers = new HashMap<>();
                 headers.put("X-Access-Token", LoginActivity.wunderlistAccessToken);
                 headers.put("X-Client-ID", Constants.WUNDERLIST_CLIENT_ID);
 
                 return headers;
             }
+
+
         };
         LoginActivity.requestQueue.add(wunderlistRequest);
 
