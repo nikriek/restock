@@ -12,4 +12,6 @@
     <string name="help">Help</string>
     <string name="quick_start">Quick Start</string>
     <string name="rate_us">Rate Us</string>
+
+    <string name="login_error">There has been an error logging in, Wunderlist servers may be down for maintenance.</string>
 </resources>
