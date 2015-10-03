@@ -16,6 +16,7 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
     let undoButton: UIButton = {
         let button = UIButton(type: .Custom)
         button.setTitle("Undo", forState: .Normal)
+        button.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.25)
         return button
     }()
     
@@ -26,14 +27,14 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
     }()
     
     let blurredBackgroundView: UIVisualEffectView = {
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
         return view
     }()
     
     let tableView: UITableView = {
-        let tableView = UITableView(frame: CGRectZero, style: .Grouped)
+        let tableView = UITableView(frame: CGRectZero)
+        tableView.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
         tableView.backgroundColor = UIColor.clearColor()
-        tableView.bounces = false
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
@@ -58,6 +59,7 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
             make.bottom.equalTo(self.blurredBackgroundView.snp_bottom)
             make.left.equalTo(self.blurredBackgroundView).offset(Constants.GridWidth)
             make.right.greaterThanOrEqualTo(self.blurredBackgroundView.snp_centerX)
+            make.rightMargin.equalTo(Constants.GridWidth * 2)
         }
         
         self.undoButton.snp_makeConstraints { (make) -> Void in
@@ -92,6 +94,7 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
     override func layoutSubviews() {
         super.layoutSubviews()
         blurredBackgroundView.setRoundedCorners([.TopLeft, .TopRight    ], radius: Constants.GridWidth)
+        undoButton.setRoundedCorners(.AllCorners, radius: 2.0)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -110,6 +113,10 @@ class CurrentScanView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell!
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Recently added"
     }
 
 }
