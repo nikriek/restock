@@ -18,6 +18,17 @@
             android:layout_marginRight="0dp"
             android:background="@color/overlay_background">
 
+            <ImageButton
+                android:id="@+id/flashlight_button"
+                android:scaleType="centerInside"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:src="@raw/flashlight_turn_off_icon"
+                android:background="@null" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,10 +89,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/overlay_text"
                     android:layout_toLeftOf="@id/undo_button"
-                    android:ellipsize="start" />
+                    android:ellipsize="start"
+                    android:textColor="@color/overlay_text"
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/product_thumbnail"

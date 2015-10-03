@@ -1,8 +1,10 @@
 package io.restock.android;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -13,6 +15,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,6 +32,8 @@ public class ScannedItemsController {
     private LinkedList<Product> archivedProducts;
     private Queue<Product> productQueue;
 
+    private LinkedList<Product> recommendations;
+
     private static final int UNDO_TIME = 3000;
     private Timer undoTimer;
 
@@ -39,6 +44,7 @@ public class ScannedItemsController {
 
         archivedProducts = new LinkedList<>();
         productQueue = new LinkedList<>();
+        recommendations = new LinkedList<>();
     }
 
     public void pushProduct(Product product) {
@@ -90,8 +96,17 @@ public class ScannedItemsController {
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(context, context.getString(R.string.wunderlist_error), Toast.LENGTH_SHORT).show();
                     }
-                });
-        MainActivity.requestQueue.add(wunderlistRequest);
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = super.getHeaders();
+                headers.put("X-Access-Token", LoginActivity.wunderlistAccessToken);
+                headers.put("X-Client-ID", Constants.WUNDERLIST_CLIENT_ID);
+
+                return headers;
+            }
+        };
+        LoginActivity.requestQueue.add(wunderlistRequest);
 
     }
 
@@ -99,7 +114,11 @@ public class ScannedItemsController {
         return archivedProducts;
     }
 
-    public boolean hasRecent(){
-        return productQueue.size()>0;
+    public boolean hasRecent() {
+        return productQueue.size() > 0;
+    }
+
+    public LinkedList<Product> getRecommendations() {
+        return recommendations;
     }
 }
