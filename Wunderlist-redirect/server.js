@@ -16,7 +16,6 @@ app.get('/redirect', function(req, res){
             'window.location = "restock://' + code + '"' +
             '</script></head><body></body></html>');
     }
-
 });
 
 app.get('/listId', function (req, res) {
@@ -66,12 +65,20 @@ app.get('/listId', function (req, res) {
                     groceryListId = JSON.parse(body2).id;
                     console.log('Created new list with id %s', groceryListId);
                     if(err2)   console.log('Error creating list: ' + err2);
+                    if(groceryListId == undefined)  {
+                        console.log('Error parsing id in body "%s"', body2);
+                        res.status(500).send('Error parsind response ' + body2);
+                    }   else {
+                        var responseString = JSON.stringify({"id": groceryListId});
+                        res.send(responseString);
+                        console.log('Sending %s', responseString);
+                    }
                 });
+            }   else    {
+                var responseString = JSON.stringify({"id": groceryListId});
+                res.send(responseString);
+                console.log('Sending %s', responseString)
             }
-
-            var responseString = JSON.stringify({"id": groceryListId});
-            res.send(responseString);
-            console.log('Sending %s', responseString)
         }   else {
             res.status(500).send('Error communicating with the API (Status code ' + response.statusCode + '): ' + error);
             console.log('Error (Status ' + response.statusCode + '): ' + error);
