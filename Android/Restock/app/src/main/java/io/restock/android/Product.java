@@ -7,7 +7,13 @@ public class Product {
 
     private String upc;
     private String name;
+    private String imageUrl;
 
+    public Product(String upc, String name, String imageUrl) {
+        this.upc = upc;
+        this.name = name;
+        this.imageUrl = imageUrl;
+    }
 
     public String getUPC() {
         return upc;
@@ -16,4 +22,9 @@ public class Product {
     public String getName() {
         return name;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
 }

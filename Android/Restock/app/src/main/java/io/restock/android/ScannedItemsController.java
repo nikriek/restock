@@ -18,12 +18,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by danth on 10/2/2015.
+ * Created by Daniel Thevessen on 10/2/2015.
  */
 public class ScannedItemsController {
 
     private Context context;
     private int list_id;
+    private ProductPollListener pollListener;
 
     private LinkedList<Product> archivedProducts;
     private Queue<Product> productQueue;
@@ -31,16 +32,17 @@ public class ScannedItemsController {
     private static final int UNDO_TIME = 3000;
     private Timer undoTimer;
 
-    public ScannedItemsController(Context context, int list_id) {
+    public ScannedItemsController(Context context, int list_id, ProductPollListener pollListener) {
         this.context = context;
         this.list_id = list_id;
+        this.pollListener = pollListener;
 
         archivedProducts = new LinkedList<>();
         productQueue = new LinkedList<>();
         undoTimer = new Timer();
     }
 
-    public void addProduct(Product product) {
+    public void pushProduct(Product product) {
         productQueue.add(product);
         undoTimer.schedule(new TimerTask() {
             @Override
@@ -51,6 +53,8 @@ public class ScannedItemsController {
     }
 
     public void undo() {
+        if (pollListener != null)
+            pollListener.onProductPolled(false);
         undoTimer.cancel();
         productQueue.poll();
     }
@@ -58,6 +62,9 @@ public class ScannedItemsController {
     private void save() {
         Product product = productQueue.poll();
         if (product != null) {
+            if (pollListener != null)
+                pollListener.onProductPolled(true);
+
             saveToWunderlist(product);
         }
     }

@@ -1,19 +1,22 @@
 package io.restock.android;
 
 import android.app.Activity;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.mirasense.scanditsdk.ScanditSDKAutoAdjustingBarcodePicker;
@@ -22,6 +25,7 @@ import com.mirasense.scanditsdk.interfaces.ScanditSDKCode;
 import com.mirasense.scanditsdk.interfaces.ScanditSDKOnScanListener;
 import com.mirasense.scanditsdk.interfaces.ScanditSDKScanSession;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -29,13 +33,22 @@ import java.util.List;
 /**
  * Created by danth on 10/2/2015.
  */
-public class MainActivity extends Activity implements ScanditSDKOnScanListener {
+public class MainActivity extends Activity implements ScanditSDKOnScanListener, ProductPollListener {
 
     private ScanditSDK barcodePicker;
 
+    // Json requests via Android Volley
     public static RequestQueue requestQueue;
 
     private ScannedItemsController itemsController;
+
+    // UI content
+    private RelativeLayout topOverlay;
+
+    private ScrollView undoMenu;
+    private Button undoButton;
+    private TextView recentItemTextView;
+    private ImageView recentItemThumbnail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +74,22 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener {
         View customOverlay = inflater.inflate(R.layout.scandit_custom_overlay, null);
         defaultOverlay.addView(customOverlay);
 
+        // save references to UI elements
+        topOverlay = (RelativeLayout) defaultOverlay.findViewById(R.id.overlay_main);
+
+        undoMenu = (ScrollView) defaultOverlay.findViewById(R.id.undo_menu);
+        undoButton = (Button) undoMenu.findViewById(R.id.undo_button);
+        recentItemTextView = (TextView) undoMenu.findViewById(R.id.product_info_text);
+        recentItemThumbnail = (ImageView) undoMenu.findViewById(R.id.product_thumbnail);
+
+        // set up request queue for JSON requests
         requestQueue = Volley.newRequestQueue(this);
         requestQueue.start();
 
         int wunderlist_list_id = -1;
         // TODO init wunderlist and get "groceries" list
 
-        itemsController = new ScannedItemsController(this, wunderlist_list_id);
+        itemsController = new ScannedItemsController(this, wunderlist_list_id, this);
 
     }
 
@@ -89,22 +111,35 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener {
 
         List<ScanditSDKCode> codes = session.getNewlyDecodedCodes();
         if (codes != null && codes.size() > 0) {
-            ScanditSDKCode selectedCode = codes.get(codes.size() - 1);
+            final ScanditSDKCode selectedCode = codes.get(codes.size() - 1);
 
             if (itemsController != null) {
                 JsonObjectRequest productRequest = new JsonObjectRequest(Request.Method.GET,
-                        "",
+                        Constants.UPC_URL + "&q=" + selectedCode.getData(),
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                // TODO
+                                try {
+                                    String upc = response.getString("upc");
+                                    String title = response.getString("title");
+                                    String imageUrl = response.getString("image");
+
+                                    if (upc != null && title != null) {
+                                        Product product = new Product(upc, title, imageUrl);
+                                        itemsController.pushProduct(product);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
+                                // No error output in here (for now)
                             }
                         });
+                requestQueue.add(productRequest);
             }
 
         }
@@ -112,4 +147,9 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener {
     }
 
 
+    @Override
+    public void onProductPolled(boolean saved) {
+
+
+    }
 }
