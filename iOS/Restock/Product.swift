@@ -19,4 +19,13 @@ class Product: NSObject {
         self.upc = upc
     }
     
+    func getDescriptor() -> String    {
+        let nameDescriptor = name ?? "Unknown product"
+        if let amountUnwrapped = amount {
+            return nameDescriptor + "(\(amountUnwrapped))"
+        }   else    {
+            return nameDescriptor
+        }
+    }
+    
 }

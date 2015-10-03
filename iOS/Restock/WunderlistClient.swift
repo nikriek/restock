@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class WunderlistClient: NSObject {
     
+    static let basePath = "https://a.wunderlist.com/api/v1/"
     static var groceryListId : Int? = {
         return NSUserDefaults.standardUserDefaults().integerForKey("groceryListId")
     }()
@@ -39,17 +40,19 @@ class WunderlistClient: NSObject {
                 case .Failure(let error):
                     NSLog("Failure \(error)")
                 }
-                
-                
         }
     }
     
     class func testLoginStatus(callback: Bool -> (), onFailure: () -> ())  {
+        if(loginCompleting) {
+            callback(true)
+            return
+        }
         let defaults = NSUserDefaults.standardUserDefaults()
         if let token = defaults.stringForKey("accessToken")
         {
             self.accessToken = token
-            Alamofire.request(.GET, "http://a.wunderlist.com/api/v1/user", headers: ["X-Client-ID": Constants.WunderlistClientId, "X-Access-Token": token])
+            Alamofire.request(.GET, "\(basePath)user", headers: loginParameters)
                 .responseJSON { (_,_, result) in
                     switch result {
                     case .Success(let data):
@@ -70,10 +73,15 @@ class WunderlistClient: NSObject {
         UIApplication.sharedApplication().openURL(NSURL(string:"https://www.wunderlist.com/oauth/authorize?client_id=f7dff4e1225dc1459172&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM")!)
     }
     
+    static var loginCompleting = false
+    
     class func completeLogin(code: String)    {
-        let parameters = ["client_id": Constants.WunderlistClientId,
+        self.loginCompleting = true
+        let parameters = [
+            "client_id": Constants.WunderlistClientId,
             "client_secret": Constants.WunderlistClientSecret,
-            "code": code]
+            "code": code                                        ]
+        
         Alamofire.request(.POST, "https://www.wunderlist.com/oauth/access_token", parameters: parameters).responseJSON  {
             (_,_, result) in
             switch result {
@@ -87,6 +95,7 @@ class WunderlistClient: NSObject {
             case .Failure(let error):
                 NSLog("Failure \(error)")
             }
+            self.loginCompleting = false
         }
     }
     
@@ -94,9 +103,11 @@ class WunderlistClient: NSObject {
     
     class func addProduct(product: Product) {
         lastProduct = nil
-        let values = ["list_id": self.groceryListId!,
-        "title": product.name ?? "Unnamed product"] as? [String : AnyObject]
-        Alamofire.request(.POST, "https://a.wunderlist.com/api/v1/tasks", parameters: values, encoding: .JSON, headers: loginParameters).responseJSON  {
+        let values = [
+            "list_id": self.groceryListId!,
+            "title": product.getDescriptor()    ] as [String : AnyObject]
+        
+        Alamofire.request(.POST, "\(basePath)tasks", parameters: values, encoding: .JSON, headers: loginParameters).responseJSON  {
             (_,_, result) in
             print(result.value)
             switch result {
@@ -116,7 +127,7 @@ class WunderlistClient: NSObject {
     
     class func removeLastAddedProduct() {
         if let id = lastProduct {
-            Alamofire.request(.DELETE, "https://a.wunderlist.com/api/v1/tasks/\(id)", headers: loginParameters)
+            Alamofire.request(.DELETE, "\(basePath)tasks/\(id)", headers: loginParameters)
             NSLog("Deleting task #\(id)")
         }
     }

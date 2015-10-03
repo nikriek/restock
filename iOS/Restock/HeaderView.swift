@@ -1,5 +1,5 @@
 //
-//  RecommendationHeaderView.swift
+//  CouponHeaderView.swift
 //  Restock
 //
 //  Created by Niklas Riekenbrauck on 03.10.15.
@@ -9,12 +9,15 @@
 import UIKit
 import SnapKit
 
-class RecommendationHeaderView: UITableViewHeaderFooterView {
-    let iconImageView = UIImageView(image: UIImage(named: ""))
+class HeaderView: UITableViewHeaderFooterView {
+    let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .Center
+        return imageView
+    }()
     
     let label: UILabel = {
         let label = UILabel(frame: CGRectZero)
-        label.text = "Recommendations"
         label.textColor = UIColor.whiteColor()
         return label
     }()
@@ -23,10 +26,10 @@ class RecommendationHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.iconImageView)
         self.iconImageView.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(Constants.GridWidth)
+            make.left.equalTo(self.contentView.snp_left).offset(Constants.GridWidth)
             make.top.equalTo(self.contentView.snp_top)
-            make.bottom.equalTo(self.contentView.snp_top)
-            make.width.equalTo(self.contentView.snp_height)
+            make.bottom.equalTo(self.contentView.snp_bottom)
+            make.width.equalTo(Constants.GridWidth * 2)
         }
         self.contentView.addSubview(self.label)
         self.label.snp_makeConstraints { (make) -> Void in

@@ -13,8 +13,8 @@ import Alamofire
 
 
 class CurrentScanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    private let RecommendationTableViewCellIdentifier = "recommendationTableViewCellIdentifier"
-    private let RecommendationHeaderViewIdentifier = "recommendationHeaderViewIdentifier"
+    private let CouponTableViewCellIdentifier = "CouponTableViewCellIdentifier"
+    private let CouponHeaderViewIdentifier = "CouponHeaderViewIdentifier"
     
     var recommendProducts: [Product] = []
     var currentProduct: Product? {
@@ -40,7 +40,7 @@ class CurrentScanViewController: UIViewController, UITableViewDelegate, UITableV
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
                 if let product = self.currentProduct {
                     self.recommendProducts.append(product)
-                    self.tableView.reloadData()
+                    
                     print("Add \(product.name)")
                     self.resetProduct()
                 }
@@ -113,12 +113,20 @@ class CurrentScanViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.allowsSelection = false
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: RecommendationTableViewCellIdentifier)
-        tableView.registerClass(RecommendationHeaderView.self, forHeaderFooterViewReuseIdentifier: RecommendationHeaderViewIdentifier)
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: CouponTableViewCellIdentifier)
+        tableView.registerClass(HeaderView.self, forHeaderFooterViewReuseIdentifier: CouponHeaderViewIdentifier)
+        
+        let tableFooterView = UILabel(frame: CGRectMake(0, 0, self.view.frame.size.width, Constants.GridHeight * 4))
+        tableFooterView.text = "No coupons found"
+        tableFooterView.textColor = UIColor.lightGrayColor()
+        tableFooterView.textAlignment = .Center
+        self.tableView.tableFooterView = tableFooterView
         
         self.currentProduct = nil
         self.undoButton.addTarget(self, action: "clickedUndo", forControlEvents: .TouchUpInside)
         toggleUndoButton()
+        
+        
     }
     
     func setProductTitleName(name: String?) {
@@ -149,7 +157,7 @@ class CurrentScanViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(RecommendationTableViewCellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(CouponTableViewCellIdentifier, forIndexPath: indexPath)
         
         let product = recommendProducts[indexPath.row]
         cell.backgroundColor = UIColor.clearColor()
@@ -173,10 +181,12 @@ class CurrentScanViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(RecommendationHeaderViewIdentifier) as? RecommendationHeaderView
+        var view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(CouponHeaderViewIdentifier) as?HeaderView
         if view == nil {
-            view = RecommendationHeaderView(reuseIdentifier: RecommendationHeaderViewIdentifier)
+            view = HeaderView(reuseIdentifier: CouponHeaderViewIdentifier)
         }
+        view?.label.text = "Coupons"
+        view?.iconImageView.image = UIImage(named: "Coupons")
         return view!
     }
     
