@@ -28,6 +28,17 @@ class SetupViewController : UIViewController    {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.clearColor()
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        //always fill the view
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        self.view.addSubview(blurEffectView)
+        
         wunderlistButton.addSubview(activityIndicator)
         activityIndicator.snp_makeConstraints {(make) in
          make.center.equalTo(wunderlistButton)
@@ -40,7 +51,7 @@ class SetupViewController : UIViewController    {
             make.height.equalTo(Constants.GridHeight * 2)
         }
         
-        tryLogin()
+        //tryLogin()
     }
     
     func tryLogin() {
@@ -62,6 +73,11 @@ class SetupViewController : UIViewController    {
     
     func login(sender: UIButton!)    {
         UIApplication.sharedApplication().openURL(NSURL(string:"https://www.wunderlist.com/oauth/authorize?client_id=f7dff4e1225dc1459172&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM")!)
+    }
+    
+    func layoutSubviews() {
+        self.view.layoutSubviews()
+        wunderlistButton.setRoundedCorners(.AllCorners, radius: 2.0)
     }
     
     func enableLoginButton()    {

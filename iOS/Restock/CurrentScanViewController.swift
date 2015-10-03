@@ -111,6 +111,7 @@ class CurrentScanViewController: UIViewController, UITableViewDelegate, UITableV
         }
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.allowsSelection = false
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: RecommendationTableViewCellIdentifier)
         tableView.registerClass(RecommendationHeaderView.self, forHeaderFooterViewReuseIdentifier: RecommendationHeaderViewIdentifier)
@@ -156,12 +157,16 @@ class CurrentScanViewController: UIViewController, UITableViewDelegate, UITableV
         cell.textLabel?.text = product.name
         if let url = product.imageUrl {
             Alamofire.request(.GET, url).validate().responseData({ (_, _, result) -> Void in
-                switch result {
-                case .Success(let imageDate):
-                    let image = UIImage(data: imageDate)
-                    cell.imageView?.image = image
-                default: break
-                }
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    if let tempCell = self.tableView.cellForRowAtIndexPath(indexPath) {
+                        switch result {
+                        case .Success(let imageDate):
+                            let image = UIImage(data: imageDate)
+                            tempCell.imageView?.image = image
+                        default: break
+                        }
+                    }
+                })
             })
         }
         return cell

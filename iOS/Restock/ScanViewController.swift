@@ -31,7 +31,6 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
-        self.title = "Restock"
         var bounds = self.navigationController?.navigationBar.bounds as CGRect!
         bounds.origin.y = -UIApplication.sharedApplication().statusBarFrame.size.height
         bounds.size.height += UIApplication.sharedApplication().statusBarFrame.size.height
@@ -39,8 +38,8 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         visualEffectView.frame = bounds
         visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         self.navigationController?.navigationBar.addSubview(visualEffectView)
-        
-        
+        self.navigationItem.title = "Restock"
+
         self.addChildViewController(currentScanView)
         self.view.addSubview(currentScanView.view)
         currentScanView.view.snp_makeConstraints { (make) -> Void in
@@ -57,6 +56,15 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         currentScanView.layoutSubviews()
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "Hamburger"), style: .Plain, target: self, action: "clickedHamburger")
         self.navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        // If not logged in
+        if (true) {
+            let viewController = SetupViewController()
+            viewController.modalPresentationStyle = .OverCurrentContext
+            self.presentViewController(viewController, animated: false, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,8 +109,8 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
     }
     
     func clickedHamburger() {
-        let moreViewController = MoreViewController()
-        moreViewController.modalTransitionStyle = .CoverVertical
+        let moreViewController = UINavigationController(rootViewController: MoreViewController())
+        moreViewController.modalPresentationStyle = .OverCurrentContext
         self.presentViewController(moreViewController, animated: true, completion: nil)
     }
 }

@@ -21,12 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
         self.window?.tintColor = UIColor.whiteColor()
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         SBSLicense.setAppKey(Constants.ScanditBarcodeScannerAppKey)
         let scanViewController = ScanViewController()
         scanViewController.startScanning()
         let rootViewController = UINavigationController(rootViewController: scanViewController )
         self.window?.rootViewController = rootViewController
-
+2
         return true
     }
     
@@ -34,14 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let components = String(url).componentsSeparatedByString("//")
         WunderlistClient.completeLogin(components.last!)
         
-        SBSLicense.setAppKey(Constants.ScanditBarcodeScannerAppKey)
-        let scanViewController = ScanViewController()
-        scanViewController.startScanning()
-        let rootViewController = UINavigationController(rootViewController: scanViewController )
-        self.window?.rootViewController = rootViewController
+        
         didSetView = true
         return true
     }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
