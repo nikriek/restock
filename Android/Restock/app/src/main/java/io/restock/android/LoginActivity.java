@@ -18,8 +18,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -47,6 +49,7 @@ public class LoginActivity extends Activity {
     public static String wunderlistAccessToken;
 
     private ProgressBar progress;
+    private RelativeLayout loginView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +66,14 @@ public class LoginActivity extends Activity {
         requestQueue.start();
 
         progress = (ProgressBar) findViewById(R.id.login_progress);
+        loginView = (RelativeLayout) findViewById(R.id.login_view);
 
         Intent intent = getIntent();
         SharedPreferences prefs = getSharedPreferences("Restock", Context.MODE_PRIVATE);
         String access_token = prefs.getString("access_token", null);
         if (access_token != null) {
             progress.setVisibility(View.VISIBLE);
+            loginView.setVisibility(View.GONE);
 
             wunderlistAccessToken = access_token;
 
@@ -78,11 +83,17 @@ public class LoginActivity extends Activity {
             String code = uri.getHost();
 
             login(code);
-        } else {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.wunderlist.com/oauth/authorize?client_id=" +
-                    Constants.WUNDERLIST_CLIENT_ID + "&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM"));
-            startActivity(browserIntent);
         }
+
+        Button loginWunderlist = (Button) loginView.findViewById(R.id.login_wunderlist_button);
+        loginWunderlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.wunderlist.com/oauth/authorize?client_id=" +
+                        Constants.WUNDERLIST_CLIENT_ID + "&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM"));
+                startActivity(browserIntent);
+            }
+        });
 
     }
 
@@ -102,6 +113,7 @@ public class LoginActivity extends Activity {
     private void login(String code) {
 
         progress.setVisibility(View.VISIBLE);
+        loginView.setVisibility(View.GONE);
 
         JSONObject params = new JSONObject();
         try {
@@ -174,6 +186,7 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(LoginActivity.this, getString(R.string.login_error), Toast.LENGTH_LONG).show();
+                        error.printStackTrace();
                         finish();
                     }
                 });

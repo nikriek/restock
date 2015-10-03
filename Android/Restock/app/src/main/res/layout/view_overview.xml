@@ -45,7 +45,8 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_recent" />
 
             <TextView
                 android:id="@+id/recent_title_text"
@@ -68,10 +69,20 @@
             android:layout_marginTop="6dp"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/no_recents_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/no_recents"
+                android:textColor="@color/overlay_text"
+                android:textSize="16sp" />
+
         </LinearLayout>
 
     </RelativeLayout>
 
+    <!--
     <RelativeLayout
         android:id="@+id/overview_recommendations"
         android:layout_width="match_parent"
@@ -118,123 +129,56 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-    <Button
-        android:layout_width="192dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/overview_recommendations"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_box"
-        android:text="@string/go_to_wunderlist"
-        android:textAllCaps="false"
-        android:textColor="@color/overlay_text"
-        android:textSize="18sp" />
+    -->
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/overview_recent_scans"
+        android:layout_marginTop="256dp"
         android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/about"
+            android:textAllCaps="false"
+            android:textColor="@color/overlay_text"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:layout_marginLeft="4dp"
-                android:background="@null"
-                android:gravity="left|center_vertical"
-                android:text="@string/settings"
-                android:textAllCaps="false"
-                android:textColor="@color/overlay_text"
-                android:textSize="24dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/about2"
+            android:textAllCaps="false"
+            android:textColor="@color/overlay_text"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:layout_marginLeft="4dp"
-                android:background="@null"
-                android:gravity="left|center_vertical"
-                android:text="@string/help"
-                android:textAllCaps="false"
-                android:textColor="@color/overlay_text"
-                android:textSize="24dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:layout_marginLeft="4dp"
-                android:background="@null"
-                android:gravity="left|center_vertical"
-                android:text="@string/quick_start"
-                android:textAllCaps="false"
-                android:textColor="@color/overlay_text"
-                android:textSize="24dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:layout_marginLeft="4dp"
-                android:background="@null"
-                android:gravity="left|center_vertical"
-                android:text="@string/rate_us"
-                android:textAllCaps="false"
-                android:textColor="@color/overlay_text"
-                android:textSize="24dp" />
-
-        </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/about3"
+            android:textAllCaps="false"
+            android:textColor="@color/overlay_text"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 

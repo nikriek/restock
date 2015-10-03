@@ -40,6 +40,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by danth on 10/2/2015.
@@ -49,8 +51,9 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
     private ScanditSDK barcodePicker;
     private ScanditSDKOverlay sdkOverlay;
 
-    private static final long SCAN_INTERVAL = (long) 2e9;
-    private long lastScanTime = 0;
+    private static final int SCAN_INTERVAL = 3500;
+
+    private Timer timer;
 
     private ScannedItemsController itemsController;
 
@@ -111,9 +114,9 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
                 @Override
                 public void onClick(View v) {
                     if (!on) {
-                        flashlightButton.setImageResource(R.drawable.flashlight_turn_on_icon);
-                    } else {
                         flashlightButton.setImageResource(R.drawable.flashlight_turn_off_icon);
+                    } else {
+                        flashlightButton.setImageResource(R.drawable.flashlight_turn_on_icon);
                     }
                     on = !on;
                     barcodePicker.switchTorchOn(on);
@@ -169,30 +172,42 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
                 sdkOverlay.drawViewfinder(true);
             }
         });
+
     }
 
     private void populateOverview() {
         // Populating for testing purposes. So, TODO.
         LinearLayout recentList = (LinearLayout) overviewOverlay.findViewById(R.id.recent_scans_list);
-        recentList.removeAllViews();
+        if (itemsController.getArchivedProducts().size() > 0)
+            recentList.removeAllViews();
         for (Product product : itemsController.getArchivedProducts()) {
             View recentScan = View.inflate(this, R.layout.view_scan_overview, null);
             TextView recentName = (TextView) recentScan.findViewById(R.id.scan_description);
             recentName.setText(product.getProductDescription());
             recentList.addView(recentScan);
+
+            Button recentAction = (Button) recentScan.findViewById(R.id.scan_action);
+            final Product finalProduct = product;
+            recentAction.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemsController.saveToWunderlist(finalProduct);
+                    populateOverview();
+                }
+            });
         }
 
-        LinearLayout recommendationList = (LinearLayout) overviewOverlay.findViewById(R.id.recommendation_list);
-        recommendationList.removeAllViews();
-        for (Product product : itemsController.getRecommendations()) {
-            View recommendationScan = View.inflate(this, R.layout.view_scan_overview, null);
-            Button recommendationAction = (Button) recommendationScan.findViewById(R.id.scan_action);
-            recommendationAction.setText(R.string.add_to_list);
-
-            TextView recommendationName = (TextView) recommendationScan.findViewById(R.id.scan_description);
-            recommendationName.setText(product.getProductDescription());
-            recommendationList.addView(recommendationScan);
-        }
+//        LinearLayout recommendationList = (LinearLayout) overviewOverlay.findViewById(R.id.recommendation_list);
+//        recommendationList.removeAllViews();
+//        for (Product product : itemsController.getRecommendations()) {
+//            View recommendationScan = View.inflate(this, R.layout.view_scan_overview, null);
+//            Button recommendationAction = (Button) recommendationScan.findViewById(R.id.scan_action);
+//            recommendationAction.setText(R.string.add_to_list);
+//
+//            TextView recommendationName = (TextView) recommendationScan.findViewById(R.id.scan_description);
+//            recommendationName.setText(product.getProductDescription());
+//            recommendationList.addView(recommendationScan);
+//        }
     }
 
     @Override
@@ -211,18 +226,20 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
     @Override
     public void didScan(ScanditSDKScanSession session) {
 
-        if (System.nanoTime() - lastScanTime < SCAN_INTERVAL) {
-            barcodePicker.pauseScanning();
-            return;
-        } else {
-            lastScanTime = System.nanoTime();
-        }
-
         if (itemsController.hasRecent())
             itemsController.save();
 
         List<ScanditSDKCode> codes = session.getNewlyDecodedCodes();
         if (codes != null && codes.size() > 0) {
+            barcodePicker.pauseScanning();
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    barcodePicker.resumeScanning();
+                }
+            }, SCAN_INTERVAL);
+
             final ScanditSDKCode selectedCode = codes.get(codes.size() - 1);
 
             if (itemsController != null) {
