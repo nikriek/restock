@@ -39,11 +39,11 @@ public class ScannedItemsController {
 
         archivedProducts = new LinkedList<>();
         productQueue = new LinkedList<>();
-        undoTimer = new Timer();
     }
 
     public void pushProduct(Product product) {
         productQueue.add(product);
+        undoTimer = new Timer();
         undoTimer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -59,7 +59,8 @@ public class ScannedItemsController {
         productQueue.poll();
     }
 
-    private void save() {
+    public void save() {
+        undoTimer.cancel();
         Product product = productQueue.poll();
         if (product != null) {
             if (pollListener != null)
@@ -96,5 +97,9 @@ public class ScannedItemsController {
 
     public LinkedList<Product> getArchivedProducts() {
         return archivedProducts;
+    }
+
+    public boolean hasRecent(){
+        return productQueue.size()>0;
     }
 }

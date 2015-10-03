@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -27,6 +28,7 @@
 
 
             <ImageButton
+                android:id="@+id/menu_button"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
                 android:layout_alignParentRight="true"
@@ -73,10 +75,13 @@
                 <TextView
                     android:id="@+id/product_info_text"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
-                    android:layout_toLeftOf="@id/undo_button" />
+                    android:layout_marginLeft="16dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/overlay_text"
+                    android:layout_toLeftOf="@id/undo_button"
+                    android:ellipsize="start" />
 
                 <ImageView
                     android:id="@+id/product_thumbnail"

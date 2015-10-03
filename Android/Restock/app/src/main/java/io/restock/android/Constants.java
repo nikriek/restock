@@ -10,11 +10,11 @@ public class Constants {
 
     // Wunderlist
     public static final String WUNDERLIST_LISTNAME = "Restock-Groceries";
-    public static final String WUNDERLIST_LISTURL = "a.wunderlist.com/api/v1/lists";
-    public static final String WUNDERLIST_TASKURL = "a.wunderlist.com/api/v1/tasks";
+    public static final String WUNDERLIST_LISTURL = "https://a.wunderlist.com/api/v1/lists";
+    public static final String WUNDERLIST_TASKURL = "https://a.wunderlist.com/api/v1/tasks";
 
     // UPC requests
-    public static final String EANDATA_KEY = "C710A16E560EF5B8";
+//    public static final String EANDATA_KEY = "C710A16E560EF5B8";
     public static final String UPC_URL = "http://restock.nico.is/api.php";
 
 }
