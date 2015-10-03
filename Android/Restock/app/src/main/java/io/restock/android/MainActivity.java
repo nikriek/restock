@@ -1,6 +1,8 @@
 package io.restock.android;
 
+import android.animation.LayoutTransition;
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.media.Image;
@@ -50,9 +52,6 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
     private static final long SCAN_INTERVAL = (long) 2e9;
     private long lastScanTime = 0;
 
-    // Json requests via Android Volley
-    public static RequestQueue requestQueue;
-
     private ScannedItemsController itemsController;
 
     // UI content
@@ -96,22 +95,38 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
         defaultOverlay = (RelativeLayout) sdkOverlay;
         customOverlay = View.inflate(this, R.layout.scandit_custom_overlay, null);
         defaultOverlay.addView(customOverlay);
+        defaultOverlay.setLayoutTransition(new LayoutTransition());
 
         // save references to UI elements
         topOverlay = (RelativeLayout) defaultOverlay.findViewById(R.id.overlay_main);
         menuButton = (ImageButton) defaultOverlay.findViewById(R.id.menu_button);
+        final ImageButton flashlightButton = (ImageButton) defaultOverlay.findViewById(R.id.flashlight_button);
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            flashlightButton.setVisibility(View.GONE);
+        } else {
+            flashlightButton.setOnClickListener(new View.OnClickListener() {
+
+                private boolean on = false;
+
+                @Override
+                public void onClick(View v) {
+                    if (!on) {
+                        flashlightButton.setImageResource(R.drawable.flashlight_turn_on_icon);
+                    } else {
+                        flashlightButton.setImageResource(R.drawable.flashlight_turn_off_icon);
+                    }
+                    on = !on;
+                    barcodePicker.switchTorchOn(on);
+                }
+            });
+        }
 
         undoMenu = (ScrollView) defaultOverlay.findViewById(R.id.undo_menu);
         undoButton = (Button) undoMenu.findViewById(R.id.undo_button);
         recentItemTextView = (TextView) undoMenu.findViewById(R.id.product_info_text);
         recentItemThumbnail = (ImageView) undoMenu.findViewById(R.id.product_thumbnail);
 
-        // set up request queue for JSON requests
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.start();
-
-        int wunderlist_list_id = -1;
-        // TODO init wunderlist and get "groceries" list
+        int wunderlist_list_id = getIntent().getIntExtra("wunderlist_list_id", -1);
 
         itemsController = new ScannedItemsController(this, wunderlist_list_id, this);
 
@@ -127,16 +142,11 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                topOverlay.setVisibility(View.GONE);
-//                if (undoMenu.getVisibility() == View.VISIBLE)
-//                    undoMenu.setVisibility(View.INVISIBLE);
-//
-//                overviewOverlay.setVisibility(View.VISIBLE);
 
+                populateOverview();
                 defaultOverlay.removeView(customOverlay);
                 defaultOverlay.addView(overviewOverlay);
 
-//                sdkOverlay.setTorchEnabled(false);
                 sdkOverlay.drawViewfinder(false);
             }
         });
@@ -152,43 +162,37 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                topOverlay.setVisibility(View.VISIBLE);
-//                if (undoMenu.getVisibility() == View.INVISIBLE)
-//                    undoMenu.setVisibility(View.VISIBLE);
-//
-//                overviewOverlay.setVisibility(View.GONE);
 
                 defaultOverlay.removeView(overviewOverlay);
                 defaultOverlay.addView(customOverlay);
 
-//                sdkOverlay.setTorchEnabled(true);
                 sdkOverlay.drawViewfinder(true);
             }
         });
+    }
 
+    private void populateOverview() {
         // Populating for testing purposes. So, TODO.
         LinearLayout recentList = (LinearLayout) overviewOverlay.findViewById(R.id.recent_scans_list);
-        for (int i = 0; i < 2; i++) {
+        recentList.removeAllViews();
+        for (Product product : itemsController.getArchivedProducts()) {
             View recentScan = View.inflate(this, R.layout.view_scan_overview, null);
             TextView recentName = (TextView) recentScan.findViewById(R.id.scan_description);
-            recentName.setText("Ein ganz tolles Produkt");
+            recentName.setText(product.getProductDescription());
             recentList.addView(recentScan);
         }
 
         LinearLayout recommendationList = (LinearLayout) overviewOverlay.findViewById(R.id.recommendation_list);
-        for (int i = 0; i < 2; i++) {
+        recommendationList.removeAllViews();
+        for (Product product : itemsController.getRecommendations()) {
             View recommendationScan = View.inflate(this, R.layout.view_scan_overview, null);
             Button recommendationAction = (Button) recommendationScan.findViewById(R.id.scan_action);
             recommendationAction.setText(R.string.add_to_list);
 
             TextView recommendationName = (TextView) recommendationScan.findViewById(R.id.scan_description);
-            recommendationName.setText("Ein ganz tolles Produkt");
+            recommendationName.setText(product.getProductDescription());
             recommendationList.addView(recommendationScan);
         }
-
-//        overviewOverlay.setVisibility(View.GONE);
-//        defaultOverlay.addView(overviewOverlay);
-
     }
 
     @Override
@@ -207,10 +211,12 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
     @Override
     public void didScan(ScanditSDKScanSession session) {
 
-        if (System.nanoTime() - lastScanTime < SCAN_INTERVAL)
+        if (System.nanoTime() - lastScanTime < SCAN_INTERVAL) {
+            barcodePicker.pauseScanning();
             return;
-        else
+        } else {
             lastScanTime = System.nanoTime();
+        }
 
         if (itemsController.hasRecent())
             itemsController.save();
@@ -231,6 +237,8 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
                                     String imageUrl = !response.isNull("image") ? response.getString("image") : null;
                                     String amount = !response.isNull("amount") ? response.getString("amount") : null;
 
+                                    Log.i("SCAN", "Scanned image: " + imageUrl);
+
                                     if (upc != null && title != null) {
                                         Product product = new Product(upc, title, imageUrl, amount);
                                         itemsController.pushProduct(product);
@@ -249,7 +257,7 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
                                                         public void onErrorResponse(VolleyError error) {
                                                         }
                                                     });
-                                            requestQueue.add(thumbnailRequest);
+                                            LoginActivity.requestQueue.add(thumbnailRequest);
                                         }
                                         undoMenu.setVisibility(View.VISIBLE);
 
@@ -265,7 +273,7 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
                                 // No error output in here (for now)
                             }
                         });
-                requestQueue.add(productRequest);
+                LoginActivity.requestQueue.add(productRequest);
             }
 
         }
