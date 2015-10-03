@@ -12,7 +12,9 @@ import SwiftyJSON
 
 class WunderlistClient: NSObject {
     
-    static var groceryListId : Int? = nil
+    static var groceryListId : Int? = {
+        return NSUserDefaults.standardUserDefaults().integerForKey("groceryListId")
+    }()
     static var accessToken : String? = nil
     
 
@@ -28,7 +30,10 @@ class WunderlistClient: NSObject {
                 switch result {
                 case .Success(let data):
                     let json = JSON(data)
-                    self.groceryListId = json["id"].int
+                    if let id = json["id"].int  {
+                        self.groceryListId = id
+                        NSUserDefaults.standardUserDefaults().setInteger(id, forKey: "groceryListId")
+                    }
                 case .Failure(let error):
                     NSLog("Failure \(error)")
                 }
@@ -75,6 +80,7 @@ class WunderlistClient: NSObject {
                 if let token = json["access_token"].string {
                     self.accessToken = token
                     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "accessToken")
+                    WunderlistClient.findAndSaveGroceriesList()
                 }
             case .Failure(let error):
                 NSLog("Failure \(error)")

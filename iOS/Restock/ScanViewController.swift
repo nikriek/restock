@@ -57,8 +57,6 @@ class ScanViewController: SBSBarcodePicker, SBSScanDelegate {
         
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "Hamburger"), style: .Plain, target: self, action: "clickedHamburger")
         self.navigationItem.rightBarButtonItem = barButtonItem
-        
-        WunderlistClient.findAndSaveGroceriesList()
     }
 
     override func didReceiveMemoryWarning() {
