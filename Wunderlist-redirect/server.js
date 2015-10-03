@@ -8,7 +8,7 @@ app.get('/redirect', function(req, res){
     console.log('Found code ' + code);
     if(code == undefined)   {
         console.log('Error: Query was ' + req.query);
-        res.code(500).end('No code found!');
+        res.end('No code found!');
     }   else    {
         //// Get the access token
         //request({url: 'http://www.wunderlist.com/oauth/access_token', form:{client_id:'f7dff4e1225dc1459172',
@@ -32,10 +32,13 @@ app.get('/redirect', function(req, res){
 
 app.get('/listId', function (req, res) {
 var accesstoken = req.query.access_token;
+
 if(accesstoken == undefined)    {
     res.end('No access token detected');
     console.log('No access token detected');
     return;
+}   else    {
+    console.log('got accesstoken' + accesstoken);
 }
 request({url: 'http://a.wunderlist.com/api/v1/lists', headers: {
     'X-Access-Token': accesstoken,
@@ -52,14 +55,15 @@ request({url: 'http://a.wunderlist.com/api/v1/lists', headers: {
                 }
             }
             if(groceryListId == undefined)    {
+                console.log('No list Restock-Groceries found, adding it')
                 // create a new list
-                request({url: 'a.wunderlist.com/api/v1/lists', headers: {
+                request({url: 'http://a.wunderlist.com/api/v1/lists', headers: {
                     'X-Access-Token': accesstoken,
-                    'X-Client-ID': 'f7dff4e1225dc1459172'}, form: {name: "Restock-Groceries"}}, function (err2, res2, body2) {
-                    //groceryListId = res2.body.id;
-                    //console.log('Created new list with id %s', body2.id);
-                    if(error)   console.log(error);
-                    console.log(body2);
+                    'X-Client-ID': 'f7dff4e1225dc1459172'}, json: true, body: {"title": "Restock-Groceries"}}, function (err2, res2, body2) {
+                    groceryListId = res2.body.id;
+                    console.log('Created new list with id %s', res2.body.id);
+                    if(groceryListId == undefined)  console.log(res2.body);
+                    if(err2)   console.log('Error creating list: ' + err2);
                 })
             }
 
