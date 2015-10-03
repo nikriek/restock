@@ -44,7 +44,12 @@ class WunderlistClient: NSObject {
         }
     }
     
+    
     class func testLoginStatus(callback: Bool -> (), onFailure: () -> ())  {
+        if(loginCompleting) {
+            callback(true)
+            return
+        }
         let defaults = NSUserDefaults.standardUserDefaults()
         if let token = defaults.stringForKey("accessToken")
         {
@@ -70,7 +75,10 @@ class WunderlistClient: NSObject {
         UIApplication.sharedApplication().openURL(NSURL(string:"https://www.wunderlist.com/oauth/authorize?client_id=f7dff4e1225dc1459172&redirect_uri=http://restock.thinkcarl.com/redirect&state=NOTRANDOM")!)
     }
     
+    static var loginCompleting = false
+    
     class func completeLogin(code: String)    {
+        self.loginCompleting = true
         let parameters = ["client_id": Constants.WunderlistClientId,
             "client_secret": Constants.WunderlistClientSecret,
             "code": code]
@@ -87,6 +95,7 @@ class WunderlistClient: NSObject {
             case .Failure(let error):
                 NSLog("Failure \(error)")
             }
+            self.loginCompleting = false
         }
     }
     
