@@ -39,6 +39,7 @@ import com.mirasense.scanditsdk.internal.gui.ScanditSDKOverlayView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -180,7 +181,10 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
         LinearLayout recentList = (LinearLayout) overviewOverlay.findViewById(R.id.recent_scans_list);
         if (itemsController.getArchivedProducts().size() > 0)
             recentList.removeAllViews();
-        for (Product product : itemsController.getArchivedProducts()) {
+        int i = 0;
+        for (Iterator<Product> iter = itemsController.getArchivedProducts().iterator(); iter.hasNext() && i < 5; i++) {
+            Product product = iter.next();
+
             View recentScan = View.inflate(this, R.layout.view_scan_overview, null);
             TextView recentName = (TextView) recentScan.findViewById(R.id.scan_description);
             recentName.setText(product.getProductDescription());
