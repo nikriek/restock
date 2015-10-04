@@ -99,7 +99,7 @@ public class ScannedItemsController {
                     @Override
                     public void onResponse(JSONObject response) {
                         archivedProducts.add(0, product);
-                        Toast.makeText(context, context.getString(R.string.wunderlist_success), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, context.getString(R.string.wunderlist_success), Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {

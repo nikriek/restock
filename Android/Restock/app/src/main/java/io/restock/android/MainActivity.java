@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -281,7 +282,8 @@ public class MainActivity extends Activity implements ScanditSDKOnScanListener, 
                                             LoginActivity.requestQueue.add(thumbnailRequest);
                                         }
                                         undoMenu.setVisibility(View.VISIBLE);
-
+                                    } else {
+                                        Toast.makeText(MainActivity.this, getString(R.string.not_in_database), Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();

@@ -19,6 +19,7 @@
     <string name="login_text">Milk is empty?</string>
     <string name="login_bullets">1. Scan it.\n2. Put it on your todo list.\n3. Never forget to buy milk again!</string>
     <string name="login_wunderlist">Login with Wunderlist</string>
-    <string name="wunderlist_success">Item added to your ToDo list! :)</string>
+    <string name="wunderlist_success">Item added to your Wunderlist! :)</string>
     <string name="no_recents">You have not scanned anything yet.</string>
+    <string name="not_in_database">Item could not be found in database</string>
 </resources>
