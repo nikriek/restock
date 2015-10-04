@@ -5,8 +5,8 @@ For easier access, Restock supports iBeacons on iOS that will bring up the app w
 
 *This project has been created for HackZurich 2015.*
 
-*Made by Nico Knoll, Carl Gödecken, Daniel Theveßen & Niklas Riekenbrauck*  
-*Powered by Icons8, Scandit, Wunderlist & Merit.*
+Made by Nico Knoll, Carl Gödecken, Daniel Theveßen & Niklas Riekenbrauck  
+Powered by Icons8, Scandit, Wunderlist & Merit
 
 Android:
 ![screenshot_2015-10-04-03-20-29](https://cloud.githubusercontent.com/assets/2228622/10266055/2c2afff8-6a4b-11e5-88da-70d343bfacc7.png)
