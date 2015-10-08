@@ -9,7 +9,7 @@
     <string name="add_to_list">Add to list</string>
     <string name="about">Restock - A hack from HackZurich 2015</string>
     <string name="about2">Made by Nico Knoll, Carl Gödecken, Daniel Theveßen &amp; Niklas Riekenbrauck</string>
-    <string name="about3">Powered by Icons8, Scandit, Wunderlist &amp; Merit</string>
+    <string name="about3">Powered by Icons8, Wunderlist &amp; Merit</string>
     <string name="settings">Settings</string>
     <string name="help">Help</string>
     <string name="quick_start">Quick Start</string>
@@ -22,4 +22,9 @@
     <string name="wunderlist_success">Item added to your Wunderlist! :)</string>
     <string name="no_recents">You have not scanned anything yet.</string>
     <string name="not_in_database">Item could not be found in database</string>
+    <string name="goto_wunderlist">Open in Wunderlist</string>
+    <string name="logout_wunderlist">Sign out</string>
+    <string name="install_wunderlist">Install Wunderlist?</string>
+    <string name="wunderlist_not_found">You need the Wunderlist Android app to use it on your device. Do you want to open Google Play Store and install now?</string>
+    <string name="ok">Ok</string>
 </resources>

@@ -67,9 +67,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/rounded_box">
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/overlay_background">
 
                 <Button
                     android:id="@+id/undo_button"
@@ -85,10 +85,10 @@
 
                 <ImageView
                     android:id="@+id/product_thumbnail"
-                    android:layout_width="48dp"
+                    android:layout_width="54dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:layout_marginBottom="4dp"
                     android:layout_alignParentLeft="true"
                     android:scaleType="centerInside"

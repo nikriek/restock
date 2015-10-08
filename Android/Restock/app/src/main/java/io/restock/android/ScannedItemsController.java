@@ -36,7 +36,7 @@ public class ScannedItemsController {
 
     private LinkedList<Product> recommendations;
 
-    private static final int UNDO_TIME = 4000;
+    private static final int UNDO_TIME = 3000;
     private Timer undoTimer;
 
     public ScannedItemsController(Context context, int list_id, ProductPollListener pollListener) {
@@ -99,6 +99,9 @@ public class ScannedItemsController {
                     @Override
                     public void onResponse(JSONObject response) {
                         archivedProducts.add(0, product);
+
+                        if(pollListener != null)
+                            pollListener.onProductSaved();
 //                        Toast.makeText(context, context.getString(R.string.wunderlist_success), Toast.LENGTH_SHORT).show();
                     }
                 },

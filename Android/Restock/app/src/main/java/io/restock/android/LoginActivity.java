@@ -41,6 +41,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Created by Daniel Thevessen on 10/3/2015.
+ */
 public class LoginActivity extends Activity {
 
     // Json requests via Android Volley
